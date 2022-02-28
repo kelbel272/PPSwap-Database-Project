@@ -91,7 +91,7 @@ input[type=text], input[type=password] {
 
 
 
-input[type=login] {
+button, input[type=login] {
     margin-top: 43px; 
     margin-bottom: 8px;
     width: 300px;
