@@ -29,21 +29,14 @@
 
 
  /* PPSwap Logo */
-.ppswap {
-    align-items: center;
-    background: url(/images/PPSwap.png);
-    background-repeat: no-repeat;
-    background-size: 126px;
-    align-content: center;
-    width: 126px;
-    height: 126px;
-    margin-top: 60px;
-    padding-bottom: 63px;
-    
-    
+ .ppswap {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+  margin-top: 20px;
 }
 
-.container {
+/* .container {
     display: flex;
     text-align: center;
     justify-content: center;
@@ -58,13 +51,14 @@
     justify-content: center;
     width: 750px;
     
-}
+} */
 
 form {
-
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 0px 50px;
+    justify-items: center;
+    align-content: center;
+    grid-gap: 20px 0px;
 }
 
 /*get rid of the thing when clicked */
@@ -74,8 +68,9 @@ input[type=text], input[type=password], input[type=email], input[type=DATE] {
     background-image: url('/images/User.png'); 
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    margin: 10px 90px;
-    width: 100%;
+    /* margin: 10px 90px; */
+
+    width: 70%;
     min-width: 300px;
     height: 45px;
     border: 1px solid #FFFFFF;

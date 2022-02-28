@@ -31,20 +31,14 @@
  /* PPSwap Logo */
 .ppswap {
     display: flex;
-    background: url(/images/PPSwap.png);
-    background-repeat: no-repeat;
-    background-size: 126px;
-    width: 126px;
-    height: 126px;
-    padding-bottom: 63px;
-    
-    
+    justify-content: center;
+    padding-bottom: 40px;
 }
 
 .container {
     display: flex;
     text-align: center;
-    margin-top: 143px;
+    margin-top: 50px;
     margin-left: 490px;
     justify-content: center;
     flex-direction: column;
