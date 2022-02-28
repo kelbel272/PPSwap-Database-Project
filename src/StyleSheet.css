@@ -30,14 +30,12 @@
 
  /* PPSwap Logo */
 .ppswap {
-    align-items: center;
+    display: flex;
     background: url(/images/PPSwap.png);
     background-repeat: no-repeat;
     background-size: 126px;
-    align-content: center;
     width: 126px;
     height: 126px;
-    margin-top: 60px;
     padding-bottom: 63px;
     
     
@@ -46,6 +44,8 @@
 .container {
     display: flex;
     text-align: center;
+    margin-top: 143px;
+    margin-left: 490px;
     justify-content: center;
     flex-direction: column;
     width: 300px;
