@@ -7,14 +7,19 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import bean.Login_Bean;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
+
+import modal.Login_Modal;
  
 /**
  * ControllerServlet.java
@@ -22,12 +27,36 @@ import java.sql.PreparedStatement;
  * requests from the user.
  * @author www.codejava.net
  */
+
+
 public class ControlServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private PeopleDAO peopleDAO;
+    private UserDAO userDAO;
+    private TweetsDAO tweetsDAO;
+    private TweetCommentsDAO tweetCommentsDAO;
+    private UserFeedsDAO userFeedsDAO;
+    private UserFollowersDAO userFollowersDAO;
+   // private TweetLikesDAO tweetLikesDAO;
+    //needs DAO made 
+    //Activity page (id, activitytype, timestamp, user_FROM, user_TO, amount (# of pp))
+    //needs Activity.java and ActivityDAO.java
+    //account info (id, userID, money in account, amount of ppswap owned)
+    //needs Account.java & AccountDAo.java
+    
+    private Login_Modal loginModal;
+    private Login_Bean loginBean;
+    
  
     public void init() {
-        peopleDAO = new PeopleDAO(); 
+    	peopleDAO = new PeopleDAO();
+        userDAO = new UserDAO();
+        tweetsDAO = new TweetsDAO();
+        tweetCommentsDAO = new TweetCommentsDAO();
+        userFeedsDAO = new UserFeedsDAO();
+        userFollowersDAO = new UserFollowersDAO();
+        loginModal = new Login_Modal();
+        loginBean = new Login_Bean();
     }
  
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -45,9 +74,12 @@ public class ControlServlet extends HttpServlet {
         System.out.println(action);
         try {
             switch (action) {
-            case "/list": 
-                System.out.println("The action is: list");
-                listPeople(request, response);           	
+            case "/initialize":
+            	initializeDatabase(request, response);
+            	break;
+            case "/login": 
+                System.out.println("The action is: login");
+                login(request, response);           	
                 break;
             case "/new":
                 System.out.println("The action is: new");
@@ -78,6 +110,36 @@ public class ControlServlet extends HttpServlet {
             throw new ServletException(ex);
         }
         System.out.println("doGet finished: 111111111111111111111111111111111111");
+    }
+    
+    public void initializeDatabase(HttpServletRequest request, HttpServletResponse response)
+    		throws SQLException, IOException, ServletException {
+    	userDAO.createDatabase();
+    	tweetsDAO.createDatabase();
+    	tweetCommentsDAO.createDatabase();
+    	userFeedsDAO.createDatabase();
+    	userFollowersDAO.createDatabase();
+    	//Add DAOs for each table of database 
+    	
+    	userDAO.seedDatabase();
+    	tweetsDAO.seedDatabase();
+    	tweetCommentsDAO.seedDatabase();
+       	userFeedsDAO.seedDatabase();
+       	userFollowersDAO.seedDatabase();
+    	
+    }
+    
+    public void login(HttpServletRequest request, HttpServletResponse response)
+    		throws SQLException, IOException, ServletException {
+    	
+    	String username = request.getParameter("userID");
+    	String password = request.getParameter("password");
+    	if (userDAO.isRoot(username,password))
+    		response.sendRedirect("NewRootPage.jsp");
+    	else if (userDAO.isValid(username,password))
+    		response.sendRedirect("Home1.jsp");
+    	else
+    		response.sendRedirect(password);
     }
     
     private void listPeople(HttpServletRequest request, HttpServletResponse response)
