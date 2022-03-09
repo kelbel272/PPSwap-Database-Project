@@ -1,7 +1,23 @@
 # PPSwap Database Project 
+
+Kelly Whitlock (fr6097)
+Kylie Lee (gw2217)
+
+Hours worked together: 20hours 
+
+Contributions 
+- Kelly 
+--- Designed UI on Figma https://www.figma.com/file/GQTEI8oTlMEMKeAWFRIJQV/PPSwap
+--Implemented login.jsp, register.jsp, Home1.jsp, and MyRootPage.jsp 
+
+- Kylie 
+--Made the database java files for each table and each of their their 10 realistic tuples 
+--Fixed formatting on the CSS 
+
+
 SRC Folder 
 - Account.java and AccountDAO.java
-- Activity.java and AvtivityDAO.java
+- Activity.java and ActivityDAO.java
 - People.java & PeopleDAO.java
 - TweetComments.java & TweetCommentsDAO.java
 - TweetLikes.java & TweetLikesDAO.java
@@ -53,12 +69,3 @@ WebContent/assets/images
 -User.png 
     -Used for first name and last name form image 
 
-
-
-
-
-
-
-
-main.py is the main file that runs as the index of the project. 
-main.py is the main file that runs as the index of the project. 
