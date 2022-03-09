@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html >
 <head>
@@ -13,7 +15,7 @@
         
   <div class="form">
   <!--  Need to add REGISTER to ControlServlet -->
-  <form class="registration" action="register" method="post">
+  <form class="ControlServlet registration" action="register" method="post">
       <!--- First Name Field  -->
       <input type="text" style="background-image: url('assets/images/Envelope.png');" placeholder="FIRST NAME" name="First_Name"/>
       <!--- Last Name Field  -->
@@ -30,7 +32,7 @@
             <div></div>
 
             <!--- Confirm Password Field -->
-            <input type="password" style="background-image: url('assets/images/Lock.png'); " id="password" name="password" placeholder="CONFIRM PASSWORD">
+            <input type="password" style="background-image: url('assets/images/Lock.png'); " id="passwordConfirm" name="passwordConfirm" placeholder="CONFIRM PASSWORD">
 
             <!--- Confirm Password Field -->
             <input type="text" style="background-image: url('assets/images/Info-circle.png'); border: none; font-family: Montserrat-Medium; "   placeholder="passwords do not match">
@@ -54,17 +56,8 @@
              <!--- Zipcode Field  -->
              <input type="text" style="background-image: url('assets/images/Location.png');" id="zipcode" name="zipcode" placeholder="ZIPCODE">
 <div></div>
-      <button>REGISTER</button>
-      <%
-		String message=(String)session.getAttribute("login_message");
-		
-		if(message!=null){
-			out.println(message);
-			session.removeAttribute("login_message");
-		}
-		
-		
-		%>
+     <button onclick="register">REGISTER</button>
+     
     </form>
   </div>
   <div style="display: flex; justify-content: center; margin-top: 63px; font-size: 16px;">Already have an account? <u><a href="login.jsp" style="color:white;">Login Here</u></a></div>

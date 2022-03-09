@@ -9,13 +9,16 @@ import java.sql.Statement;
  * Servlet implementation class Connect
  */
 
-public class TweetCommentsDAO {     
+public class TweetLikesDAO {     
 	private static final long serialVersionUID = 1L;
 	private Connection connect = null;
 	private Statement statement = null;
 	private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
 
+	public TweetLikesDAO() {
+		
+	}
 	protected void connect_func() throws SQLException {
         if (connect == null || connect.isClosed()) {
             try {
@@ -39,12 +42,11 @@ public class TweetCommentsDAO {
 		statement.executeUpdate("SET FOREIGN_KEY_CHECKS = 0");
 		statement.executeUpdate("DROP TABLE IF EXISTS Tweets");
 		statement.executeUpdate("SET FOREIGN_KEY_CHECKS = 1");
-		
+	
 		String sqlstmt = "CREATE TABLE IF NOT EXISTS Users " +
                 "(id INTEGER not NULL AUTO_INCREMENT, " +
                 " PostID INTEGER(50), " + 
                 " UserID VARCHAR(200), " + 
-                " Comment VARCHAR(50), " + 
                 " Created_At VARCHAR(50), " + 
                 " PRIMARY KEY ( id ))"; 
 		statement.executeUpdate(sqlstmt);
@@ -64,70 +66,60 @@ public class TweetCommentsDAO {
 			statement = connect.createStatement();
 			
 			preparedStatement = connect
-					.prepareStatement("insert into TweetComments(PostID, UserID, Comment, "
-							+ "Created_At) values (?, ?, ?, ?)");
+					.prepareStatement("insert into TweetComments(PostID, UserID, "
+							+ "Created_At) values (?, ?, ?)");
 			
-			//Insert Comment to Tweet 
+			//Insert Like of Tweet
 			preparedStatement.setString(1, "1");
 			preparedStatement.setString(2, "kelly@gmail.com");
-			preparedStatement.setString(3, "yaaasssss");
-			preparedStatement.setString(4, "2022.01.12.01:22:66");
+			preparedStatement.setString(3, "2022.01.12.01:22:66");
 			preparedStatement.executeUpdate();
 			
 			preparedStatement.setString(1, "2");
-			preparedStatement.setString(2, "kelly@gmail.com");
-			preparedStatement.setString(3, "what a mood");
-			preparedStatement.setString(4, "2022.03.08.12:22:66");
-			preparedStatement.executeUpdate();
-			
-			preparedStatement.setString(1, "3");
-			preparedStatement.setString(2, "kylie@gmail.com");
-			preparedStatement.setString(3, "<3");
-			preparedStatement.setString(4, "2022.03.08.18:21:58");
-			preparedStatement.executeUpdate();
-	
-			preparedStatement.setString(1, "4");
-			preparedStatement.setString(2, "jungkook@gmail.com");
-			preparedStatement.setString(3, "#love_yourself");
-			preparedStatement.setString(4, "2022.03.08.12:21:48");
-			preparedStatement.executeUpdate();
-		
-			preparedStatement.setString(1, "5");
-			preparedStatement.setString(2, "hstyles@gmail.com");
-			preparedStatement.setString(3, "whaaaat");
-			preparedStatement.setString(4, "2022.03.08.12:21:58");
-			preparedStatement.executeUpdate();
-			
-			preparedStatement.setString(1, "6");
-			preparedStatement.setString(2, "halsey@gmail.com");
-			preparedStatement.setString(3, "naur");
-			preparedStatement.setString(4, "2022.03.08.12:21:58");
-			preparedStatement.executeUpdate();
+            preparedStatement.setString(2, "kelly@gmail.com");
+            preparedStatement.setString(3, "2022.03.01.02:12:60");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "3");
+            preparedStatement.setString(2, "jungkook@gmail.com");
+            preparedStatement.setString(3, "2022.03.08.08:22:66");
+            preparedStatement.executeUpdate();
 
-			preparedStatement.setString(1, "6");
-			preparedStatement.setString(2, "kylie@gmail.com");
-			preparedStatement.setString(3, "what the-");
-			preparedStatement.setString(4, "2022.03.08.12:21:58");
-			preparedStatement.executeUpdate();
-		
-			preparedStatement.setString(1, "7");
-			preparedStatement.setString(2, "squidgames@gmail.com");
-			preparedStatement.setString(3, ":D");
-			preparedStatement.setString(4, "2022.03.08.23:21:58");
-			preparedStatement.executeUpdate();
-		
-			preparedStatement.setString(1, "8");
-			preparedStatement.setString(2, "obama@gmail.com");
-			preparedStatement.setString(3, "me too");
-			preparedStatement.setString(4, "2022.03.08.1221:58");
-			preparedStatement.executeUpdate();
-	
-			preparedStatement.setString(1, "9");
-			preparedStatement.setString(2, "jlo@gmail.com");
-			preparedStatement.setString(3, ":p");
-			preparedStatement.setString(4, "2022.03.08.15:21:58");
-			preparedStatement.executeUpdate();
-		
+            preparedStatement.setString(1, "3");
+            preparedStatement.setString(2, "squidgames@gmail.com");
+            preparedStatement.setString(3, "2022.03.03.12:32:46");
+            preparedStatement.executeUpdate();
+
+            preparedStatement.setString(1, "5");
+            preparedStatement.setString(2, "kylie@gmail.com");
+            preparedStatement.setString(3, "2022.03.09.01824:26");
+            preparedStatement.executeUpdate();
+
+            preparedStatement.setString(1, "6");
+            preparedStatement.setString(2, "steveh@gmail.com");
+            preparedStatement.setString(3, "2022.02.28.02:22:66");
+            preparedStatement.executeUpdate();
+
+            preparedStatement.setString(1, "6");
+            preparedStatement.setString(2, "hstyles@gmail.com");
+            preparedStatement.setString(3, "2022.03.09.03:12:26");
+            preparedStatement.executeUpdate();
+
+            preparedStatement.setString(1, "1");
+            preparedStatement.setString(2, "jlo@gmail.com");
+            preparedStatement.setString(3, "2022.03.01.02:22:66");
+            preparedStatement.executeUpdate();
+
+            preparedStatement.setString(1, "10");
+            preparedStatement.setString(2, "halsey@gmail.com");
+            preparedStatement.setString(3, "2022.02.28.03:12:66");
+            preparedStatement.executeUpdate(); 
+
+            preparedStatement.setString(1, "10");
+            preparedStatement.setString(2, "jungkook@gmail.com");
+            preparedStatement.setString(3, "2022.03.07.12:22:16");
+            preparedStatement.executeUpdate();
+			//Add 9 more 
 			
 		} catch (Exception e) {
 			System.out.println(e);

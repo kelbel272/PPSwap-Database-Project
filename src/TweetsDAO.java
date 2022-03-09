@@ -15,6 +15,10 @@ public class TweetsDAO {
 	private Statement statement = null;
 	private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
+	
+	public TweetsDAO() {
+		
+	}
 
 	protected void connect_func() throws SQLException {
         if (connect == null || connect.isClosed()) {
@@ -77,6 +81,68 @@ public class TweetsDAO {
 			preparedStatement.setString(5, "0");
 			preparedStatement.executeUpdate();
 			
+			preparedStatement.setString(1, "halsey@gmail.com");
+            preparedStatement.setString(2, "Excited for the new Master Chef Junior season!");
+            preparedStatement.setString(3, "2021.03.12.12:21:56");
+            preparedStatement.setString(4, "0");
+            preparedStatement.setString(5, "0");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "jungkook@gmail.com");
+            preparedStatement.setString(2, "Excited for our concert in Las Vegas!");
+            preparedStatement.setString(3, "2022.03.11.10:12:45");
+            preparedStatement.setString(4, "0");
+            preparedStatement.setString(5, "0");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "squidgames@gmail.com");
+            preparedStatement.setString(2, "Seasaon Two????");
+            preparedStatement.setString(3, "2022.02.28.09:12:38");
+            preparedStatement.setString(4, "0");
+            preparedStatement.setString(5, "0");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "jlo@gmail.com");
+            preparedStatement.setString(2, "How far away is Christmas?");
+            preparedStatement.setString(3, "2022.01.18.04:21:46");
+            preparedStatement.setString(4, "0");
+            preparedStatement.setString(5, "0");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "hstyles@gmail.com");
+            preparedStatement.setString(2, "Why is my internet connection rubbish");
+            preparedStatement.setString(3, "2020.01.22.03:22:56");
+            preparedStatement.setString(4, "0");
+            preparedStatement.setString(5, "0");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "steveh@gmail.com");
+            preparedStatement.setString(2, "FAMILY FEUDDDD");
+            preparedStatement.setString(3, "2021.12.12.03:12:46");
+            preparedStatement.setString(4, "0");
+            preparedStatement.setString(5, "0");
+            
+            preparedStatement.setString(1, "obama@gmail.com");
+            preparedStatement.setString(2, "I love meatloaf");
+            preparedStatement.setString(3, "2021.08.13.12:12:46");
+            preparedStatement.setString(4, "0");
+            preparedStatement.setString(5, "0");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "kelly@gmail.com");
+            preparedStatement.setString(2, "I love databases");
+            preparedStatement.setString(3, "2022.01.22.09:02:26");
+            preparedStatement.setString(4, "0");
+            preparedStatement.setString(5, "0");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "kylie@gmail.com");
+            preparedStatement.setString(2, "Why are weekends so far away");
+            preparedStatement.setString(3, "2021.09.12.11:42:36");
+            preparedStatement.setString(4, "0");
+            preparedStatement.setString(5, "0");
+            preparedStatement.executeUpdate();
+            
 			//Add 9 more 
 			
 		} catch (Exception e) {

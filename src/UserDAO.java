@@ -19,10 +19,11 @@ public class UserDAO {
 	private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
 	
-	UserDAO() {
+	public UserDAO() {
 		
 	}
 
+    
 	protected void connect_func() throws SQLException {
         if (connect == null || connect.isClosed()) {
             try {
@@ -121,10 +122,123 @@ public class UserDAO {
 			preparedStatement.setString(10, "48208");
 			preparedStatement.executeUpdate();
 			
+			//Insert User: Obama
+			preparedStatement.setString(1, "obama@gmail.com");
+            preparedStatement.setString(2, "prezobama");
+            preparedStatement.setString(3, "Barack");
+            preparedStatement.setString(4, "Obama");
+            preparedStatement.setString(5, "08/04/1961");
+            preparedStatement.setString(6, "1234 American Dr");
+            preparedStatement.setString(7, "");
+            preparedStatement.setString(8, "Chicago");
+            preparedStatement.setString(9, "Illinois");
+            preparedStatement.setString(10, "48208");
+        	preparedStatement.executeUpdate();
+        	
+        	//Insert User: Steve Harvey
+        	preparedStatement.setString(1, "steveh@gmail.com");
+            preparedStatement.setString(2, "mcharvey");
+            preparedStatement.setString(3, "Steve");
+            preparedStatement.setString(4, "Harvey");
+            preparedStatement.setString(5, "01/17/1957");
+            preparedStatement.setString(6, "1234 Family Dr");
+            preparedStatement.setString(7, "");
+            preparedStatement.setString(8, "Los Angeles");
+            preparedStatement.setString(9, "CA");
+            preparedStatement.setString(10, "39208"); 
+            preparedStatement.executeUpdate();
+            
+            //Insert User: Harry Styles
+            preparedStatement.setString(1, "hstyles@gmail.com");
+            preparedStatement.setString(2, "1dstyles");
+            preparedStatement.setString(3, "Harry");
+            preparedStatement.setString(4, "Styles");
+            preparedStatement.setString(5, "02/01/1994");
+            preparedStatement.setString(6, "762 British Ln");
+            preparedStatement.setString(7, "");
+            preparedStatement.setString(8, "New York");
+            preparedStatement.setString(9, "NY");
+            preparedStatement.setString(10, "24898");
+            preparedStatement.executeUpdate();
+
+            //Insert JLo
+            preparedStatement.setString(1, "jlo@gmail.com");
+            preparedStatement.setString(2, "jlopez");
+            preparedStatement.setString(3, "Jennifer");
+            preparedStatement.setString(4, "Lopez");
+            preparedStatement.setString(5, "07/24/1969");
+            preparedStatement.setString(6, "14521 Hustlers Rd");
+            preparedStatement.setString(7, "");
+            preparedStatement.setString(8, "New York");
+            preparedStatement.setString(9, "NY");
+            preparedStatement.setString(10, "28491");
+            preparedStatement.executeUpdate();
+            
+           //Insert Hoyeon
+            preparedStatement.setString(1, "squidgames@gmail.com");
+            preparedStatement.setString(2, "hoyeonj");
+            preparedStatement.setString(3, "Hoyeon");
+            preparedStatement.setString(4, "Jung");
+            preparedStatement.setString(5, "06/23/1994");
+            preparedStatement.setString(6, "63462 Saebyeok Dr");
+            preparedStatement.setString(7, "");
+            preparedStatement.setString(8, "Detroit");
+            preparedStatement.setString(9, "MI");
+            preparedStatement.setString(10, "48208");
+            preparedStatement.executeUpdate();
+
+            preparedStatement.setString(1, "jungkook@gmail.com");
+            preparedStatement.setString(2, "bts_jk");
+            preparedStatement.setString(3, "Jungkook");
+            preparedStatement.setString(4, "Jeon");
+            preparedStatement.setString(5, "08/01/1997");
+            preparedStatement.setString(6, "813 Kpop Rd");
+            preparedStatement.setString(7, "");
+            preparedStatement.setString(8, "Las Vegas");
+            preparedStatement.setString(9, "Nevada");
+            preparedStatement.setString(10, "22038");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "halsey@gmail.com");
+            preparedStatement.setString(2, "iamhalsey");
+            preparedStatement.setString(3, "Ashley");
+            preparedStatement.setString(4, "Frangipane");
+            preparedStatement.setString(5, "09/29/1994");
+            preparedStatement.setString(6, "9301 Singer Ave");
+            preparedStatement.setString(7, "");
+            preparedStatement.setString(8, "Edison");
+            preparedStatement.setString(9, "New Jersey");
+            preparedStatement.setString(10, "97321");
+            preparedStatement.executeUpdate();
+            
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
+	
+	public boolean insert(User user) throws SQLException {
+    	connect_func();         
+		String sql = "insert into  Users(UserID, Password, First_Name, Last_Name, Birthdate, Street, Unit, "
+				+ "City, State, Zipcode ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		preparedStatement = (PreparedStatement) connect.prepareStatement(sql);
+		preparedStatement.setString(1, user.userID);
+		preparedStatement.setString(2, user.password);
+		preparedStatement.setString(3, user.fname);
+		preparedStatement.setString(4, user.lname);
+		preparedStatement.setString(5, user.birthdate);
+		preparedStatement.setString(6, user.street);
+		preparedStatement.setString(7, user.unit);
+		preparedStatement.setString(8, user.city);
+		preparedStatement.setString(8, user.state);
+		preparedStatement.setString(8, user.zipcode);
+		
+//		preparedStatement.executeUpdate();
+		
+        boolean rowInserted = preparedStatement.executeUpdate() > 0;
+        preparedStatement.close();
+//        disconnect();
+        return rowInserted;
+    }  
 	 
 	public boolean isValid(String username, String password) {
 		boolean flag = false;

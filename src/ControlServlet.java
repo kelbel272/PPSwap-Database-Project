@@ -37,12 +37,9 @@ public class ControlServlet extends HttpServlet {
     private TweetCommentsDAO tweetCommentsDAO;
     private UserFeedsDAO userFeedsDAO;
     private UserFollowersDAO userFollowersDAO;
-   // private TweetLikesDAO tweetLikesDAO;
-    //needs DAO made 
-    //Activity page (id, activitytype, timestamp, user_FROM, user_TO, amount (# of pp))
-    //needs Activity.java and ActivityDAO.java
-    //account info (id, userID, money in account, amount of ppswap owned)
-    //needs Account.java & AccountDAo.java
+    private TweetLikesDAO tweetLikesDAO;
+    private AccountDAO accountDAO;
+    private ActivityDAO activityDAO;
     
     private Login_Modal loginModal;
     private Login_Bean loginBean;
@@ -55,6 +52,9 @@ public class ControlServlet extends HttpServlet {
         tweetCommentsDAO = new TweetCommentsDAO();
         userFeedsDAO = new UserFeedsDAO();
         userFollowersDAO = new UserFollowersDAO();
+        tweetLikesDAO = new TweetLikesDAO();
+        accountDAO = new AccountDAO();
+        activityDAO = new ActivityDAO();
         loginModal = new Login_Modal();
         loginBean = new Login_Bean();
     }
@@ -80,6 +80,10 @@ public class ControlServlet extends HttpServlet {
             case "/login": 
                 System.out.println("The action is: login");
                 login(request, response);           	
+                break;
+            case "/register":
+            	System.out.println("The action is: register");
+                register(request, response);           	
                 break;
             case "/new":
                 System.out.println("The action is: new");
@@ -119,13 +123,19 @@ public class ControlServlet extends HttpServlet {
     	tweetCommentsDAO.createDatabase();
     	userFeedsDAO.createDatabase();
     	userFollowersDAO.createDatabase();
-    	//Add DAOs for each table of database 
+    	tweetLikesDAO.createDatabase();
+    	accountDAO.createDatabase();
+    	activityDAO.createDatabase();
     	
+    	//Add DAOs for each table of database 
     	userDAO.seedDatabase();
     	tweetsDAO.seedDatabase();
     	tweetCommentsDAO.seedDatabase();
        	userFeedsDAO.seedDatabase();
        	userFollowersDAO.seedDatabase();
+       	tweetLikesDAO.createDatabase();
+    	accountDAO.seedDatabase();
+    	activityDAO.seedDatabase();
     	
     }
     
@@ -140,6 +150,40 @@ public class ControlServlet extends HttpServlet {
     		response.sendRedirect("Home1.jsp");
     	else
     		response.sendRedirect(password);
+    }
+    
+    public void register(HttpServletRequest request, HttpServletResponse response)
+    		throws SQLException, IOException, ServletException {
+    	//REGISTER USER HERE (INSERT)
+    	System.out.println("register started: 000000000000000000000000000");
+    	
+    	String username = request.getParameter("userID");
+    	String password = request.getParameter("password");
+    	String fname = request.getParameter("First_Name");
+    	String lname = request.getParameter("Last_Name");
+    	String birthdate = request.getParameter("birthdate");
+    	String street = request.getParameter("street");
+    	String unit = request.getParameter("unit");
+    	String city = request.getParameter("city");
+    	String state = request.getParameter("state");
+    	String zip = request.getParameter("zipcode");
+    	
+    	
+        System.out.println("userID: " + username + ", password: "+ password + ", "
+        		+ "fname: " + fname + ", lname: " + lname + ", birth: " + birthdate 
+        		+ ", street: " + street + ", unit: " + unit + ", city: " + city 
+        		+ ", state: " + ", zip: " + zip);
+
+        User newUser = new User(username, password, fname, lname, birthdate, street, unit, city, state, zip);
+        userDAO.insert(newUser);
+     
+        System.out.println("Ask the browser to call the list action next automatically");
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Home1.jsp");
+        dispatcher.forward(request, response);
+     
+        System.out.println("insertPeople finished: 11111111111111111111111111");   
+        
     }
     
     private void listPeople(HttpServletRequest request, HttpServletResponse response)

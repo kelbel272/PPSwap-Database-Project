@@ -69,7 +69,52 @@ public class UserFollowersDAO {
 			//Insert Comment to Tweet 
 			preparedStatement.setString(1, "kelly@gmail.com");
 			preparedStatement.setString(2, "kylie@gmail.com");
-			preparedStatement.setString(4, "2022.01.12.01:22:66");
+			preparedStatement.setString(3, "2022.01.12.01:22:66");
+			preparedStatement.executeUpdate();
+			
+			preparedStatement.setString(1, "kylie@gmail.com");
+			preparedStatement.setString(2, "kelly@gmail.com");
+			preparedStatement.setString(3, "2022.01.12.01:22:66");
+			preparedStatement.executeUpdate();
+		
+			preparedStatement.setString(1, "jungkook@gmail.com");
+			preparedStatement.setString(2, "kylie@gmail.com");
+			preparedStatement.setString(3, "2022.01.12.01:22:66");
+			preparedStatement.executeUpdate();
+
+			preparedStatement.setString(1, "kylie@gmail.com");
+			preparedStatement.setString(2, "jungkook@gmail.com");
+			preparedStatement.setString(3, "2022.01.12.01:22:66");
+			preparedStatement.executeUpdate();
+	
+			preparedStatement.setString(1, "squidgames@gmail.com");
+			preparedStatement.setString(2, "kylie@gmail.com");
+			preparedStatement.setString(3, "2022.01.12.01:22:66");
+			preparedStatement.executeUpdate();
+	
+			preparedStatement.setString(1, "kelly@gmail.com");
+			preparedStatement.setString(2, "obama@gmail.com");
+			preparedStatement.setString(3, "2022.01.12.01:22:66");
+			preparedStatement.executeUpdate();
+		
+			preparedStatement.setString(1, "jlo@gmail.com");
+			preparedStatement.setString(2, "hstyles@gmail.com");
+			preparedStatement.setString(3, "2022.01.12.01:22:66");
+			preparedStatement.executeUpdate();
+		
+			preparedStatement.setString(1, "jlo@gmail.com");
+			preparedStatement.setString(2, "halsey@gmail.com");
+			preparedStatement.setString(3, "2022.01.12.01:22:66");
+			preparedStatement.executeUpdate();
+
+			preparedStatement.setString(1, "obama@gmail.com");
+			preparedStatement.setString(2, "hstyles@gmail.com");
+			preparedStatement.setString(3, "2022.01.12.01:22:66");
+			preparedStatement.executeUpdate();
+
+			preparedStatement.setString(1, "kelly@gmail.com");
+			preparedStatement.setString(2, "hstyles@gmail.com");
+			preparedStatement.setString(3, "2022.01.12.01:22:66");
 			preparedStatement.executeUpdate();
 			
 			//Add 9 more 
