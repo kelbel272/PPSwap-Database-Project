@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home Page</title>
+<title>Home/PPSwap</title>
+<link rel="stylesheet" type="text/css" href="assets/css/Home.css">
 </head>
 <body>
 
@@ -27,7 +28,7 @@
 <h1>Home Page</h1>
 <table>
 <tr>
-<td><a href="Home.jsp">Home</a></td>
+<td><a href="Home1.jsp">Home</a></td>
 <td><a href="My_Profile.jsp">Profile</a></td>
 <td> Welcome <%=obj_Login_Bean.getUserID() %></td>
 <td><a href="Signout_controller.jsp">Log Out</a></td>

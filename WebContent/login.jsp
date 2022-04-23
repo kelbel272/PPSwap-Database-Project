@@ -7,20 +7,20 @@
 <head>
   <meta charset="UTF-8">
   <title>PPSwap - Login</title>
-      <link rel="stylesheet" type="text/css" href="assets/css/StyleSheet.css">
+      <link rel="stylesheet" type="text/css" href="/assets/css/StyleSheet.css">
 </head>
 
 <body>
   <div class="container">
   <div class="ppswap">
-            <img alt="logo" style="width: 150px; height: 150px;" src="assets/images/PPSwap.png"/>
+            <img alt="logo" style="width: 150px; height: 150px;" src="/assets/images/PPSwap.png"/>
         </div>
         
   <div class="form">
   <form class="login-form" action="Sign_in_controller.jsp" method="post">
      
-      <input type="text" style="background-image: url('assets/images/Envelope.png');" placeholder="USERNAME" name="userID"/>
-      <input type="password" style="background-image: url('assets/images/Lock.png'); " placeholder="PASSWORD" name="password"/>
+      <input type="text" style="background-image: url('/assets/images/Envelope.png');" placeholder="USERNAME" name="userID"/>
+      <input type="password" style="background-image: url('/assets/images/Lock.png'); " placeholder="PASSWORD" name="password"/>
          <%
 		String message=(String)session.getAttribute("login_message");
 		

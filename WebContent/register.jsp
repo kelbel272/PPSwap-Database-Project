@@ -15,30 +15,30 @@
         
   <div class="form">
   <!--  Need to add REGISTER to ControlServlet -->
-  <form class="ControlServlet registration" action="register" method="post">
+  <form class="registration" action="register" method="post">
       <!--- First Name Field  -->
       <input type="text" style="background-image: url('assets/images/Envelope.png');" placeholder="FIRST NAME" name="First_Name"/>
       <!--- Last Name Field  -->
       <input type="text" style="background-image: url('assets/images/Lock.png'); " placeholder="LAST NAME" name="Last_Name"/>
 
             <!--- Email Field  -->
-            <input type="email" style="background-image: url('assets/images/Envelope.png');" id="userID" name="userID" placeholder="EMAIL">
+            <input type="email" style="background-image: url('assets/images/Envelope.png');"  id="userID" name="userID" placeholder="EMAIL">
 
             <!--- JS Email Field  -->
-            <input type="text" style="background-image: url('assets/images/Info-circle.png'); border: none; font-family: Montserrat-Medium; "   placeholder="an account with this email already exists" readonly>
+            <input type="text" style="background-image: url('assets/images/Info-circle.png'); border: none; font-family: Montserrat-Medium; "   placeholder="an account with this email already exists" disabled>
 
             <!--- Password Field -->
             <input type="password" style="background-image: url('assets/images/Lock.png'); " id="password" name="password" placeholder="PASSWORD">
             <div></div>
 
             <!--- Confirm Password Field -->
-            <input type="password" style="background-image: url('assets/images/Lock.png'); " id="passwordConfirm" name="passwordConfirm" placeholder="CONFIRM PASSWORD">
-
-            <!--- Confirm Password Field -->
-            <input type="text" style="background-image: url('assets/images/Info-circle.png'); border: none; font-family: Montserrat-Medium; "   placeholder="passwords do not match">
+            <input type="password" style="background-image: url('assets/images/Lock.png');" id="passwordConfirm" name="passwordConfirm" placeholder="CONFIRM PASSWORD">
+			
+            <!--- Confirm Password Message -->
+            <input type="text" style="background-image: none; border: none; font-family: Montserrat-Medium; " id="passMessage" placeholder=" " disabled>
 
             <!--- Birthdate Field  -->
-            <input type="date" style="background-image: url('assets/images/Present.png'); " id="birthdate" name="birthdate" placeholder="BIRTHDAY">
+            <input type="date" style="background-image: url('assets/images/Present.png');" id="birthdate" name="birthdate" placeholder="BIRTHDAY">
             <div></div>
 
             <!--- Address Line 1 Field  -->
@@ -56,12 +56,30 @@
              <!--- Zipcode Field  -->
              <input type="text" style="background-image: url('assets/images/Location.png');" id="zipcode" name="zipcode" placeholder="ZIPCODE">
 <div></div>
-     <button onclick="register">REGISTER</button>
+     <button>REGISTER</button>
      
     </form>
   </div>
-  <div style="display: flex; justify-content: center; margin-top: 63px; font-size: 16px;">Already have an account? <u><a href="login.jsp" style="color:white;">Login Here</u></a></div>
+  <div style="display: flex; justify-content: center; margin-top: 63px; font-size: 16px;">Already have an account? <u><a href="login.jsp" style="color: white;">Login Here</u></a></div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js">
+    </script>
+<script type="text/javascript">
+//Check if passwords match 
+$(document).ready(function(){
+    $("#passwordConfirm").keyup(function(){
+         if ($("#password").val() != $("#passwordConfirm").val()) {
+             $("#passMessage").attr("placeholder", "passwords do not match");
+             $("#passMessage").css("background-image", "url('assets/images/Info-circle.png')");
+         }else{
+        	  $("#passMessage").css("background-image", "");
+        	  $("#passMessage").attr("placeholder", "");
+        }
+  });
+  
+    
+});
 
+</script>
 
 </body>
 </html>

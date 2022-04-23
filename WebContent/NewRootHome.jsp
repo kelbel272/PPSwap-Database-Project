@@ -15,14 +15,17 @@
      <!--- Container for Login Stuff -->
     <div class="container">
 
-        <!--- PPSwap Logo IDK WHY I CANT CENTER THIS IN THE CONTAINER :() -->
+        <!--- PPSwap Logo ) -->
         <div class="ppswap"></div>
 
         <!--- Welcome Message-->
         <div style="font-family: Montserrat-Light; font-size: 14px;">WELCOME, ROOT!</div>
 
         <!--- Initialize Database Button -->
-        <button onclick="initialize">INITIALIZE DATABASE</button>
+        <form action="initialize" method="post">
+        	<button>INITIALIZE DATABASE</button>
+     
+        </form>
         <a href="Signout_controller.jsp"><button>LOG OUT</button></a>
   </div>
 </div>
