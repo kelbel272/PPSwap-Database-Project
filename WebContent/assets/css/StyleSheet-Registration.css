@@ -10,19 +10,19 @@
 
 /* Montserrat Light Font */
 @font-face {
-    font-family: "Montserrat-Light";
+    font-family: 'Montserrat-Light';
     src: url("../assets/fonts/Montserrat-Light.ttf") format("truetype");
   }
 
 /* Montserrat SemiBold Font */
 @font-face {
-    font-family: Montserrat-SemiBold;
+    font-family: 'Montserrat-SemiBold';
     src: url("../assets/fonts/Montserrat-SemiBold.ttf") format("truetype");
 }
 
 /* Montserrat Medium Font */
 @font-face {
-    font-family: Montserrat-Medium;
+    font-family: 'Montserrat-Medium';
     src: url("../assets/fonts/Montserrat-Medium.ttf") format("truetype");
 }
 
@@ -114,7 +114,7 @@ input[type=submit] {
     border-radius: 4px;
     color:#FFFFFF;
     font-weight: 300;
-    font-size: 14px;;
+    font-size: 14px;
 /* identical to box height, or 143% */
     justify-content: center;
     text-transform: uppercase;
