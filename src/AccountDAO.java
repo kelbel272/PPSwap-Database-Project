@@ -40,16 +40,17 @@ public class AccountDAO {
 			statement = (Statement) connect.createStatement();
 		statement = connect.createStatement();
 		statement.executeUpdate("SET FOREIGN_KEY_CHECKS = 0");
-		statement.executeUpdate("DROP TABLE IF EXISTS Tweets");
+		statement.executeUpdate("DROP TABLE IF EXISTS Account");
 		statement.executeUpdate("SET FOREIGN_KEY_CHECKS = 1");
 	
-		String sqlstmt = "CREATE TABLE IF NOT EXISTS Users " +
+		String sqlstmt = "CREATE TABLE IF NOT EXISTS Account " +
                 "(id INTEGER not NULL AUTO_INCREMENT, " +
                 " UserID VARCHAR(50), " + 
-                " Balance DOUBLE(200), " + 
-                " PPSwap_Total DOUBLE(50), " + 
+                " Balance INTEGER(50), " + 
+                " PPSTotal INTEGER(50), " + 
                 " PRIMARY KEY ( id ))"; 
 		statement.executeUpdate(sqlstmt);
+		 System.out.println("Account Table Created");
 			} catch (Exception e) {
 				System.out.println(e);
 			} finally {
@@ -66,13 +67,13 @@ public class AccountDAO {
 			statement = connect.createStatement();
 			
 			preparedStatement = connect
-					.prepareStatement("insert into Account(UserID, Balance, "
-							+ "PPSwap_Total) values (?, ?, ?)");
+					.prepareStatement("insert into Account(UserID, Balance, " +
+							 "PPSTotal) values (?, ?, ?)");
 		
 			//Insert Like of Tweet
 			preparedStatement.setString(1, "root");
 			preparedStatement.setString(2, "1000");
-			preparedStatement.setString(3, "1,000,000,000");
+			preparedStatement.setString(3, "1000000000");
 			preparedStatement.executeUpdate();
 			
 			preparedStatement.setString(1, "kelly@gmail.com");
@@ -119,6 +120,8 @@ public class AccountDAO {
 			preparedStatement.setString(2, "0");
 			preparedStatement.setString(3, "0");
 			preparedStatement.executeUpdate();
+			
+			System.out.println("Sucessfully Seeded Account Database");
 			//Add 9 more 
 			
 		} catch (Exception e) {

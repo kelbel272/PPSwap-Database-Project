@@ -35,14 +35,11 @@ public class ControlServlet extends HttpServlet {
     private UserDAO userDAO;
     private TweetsDAO tweetsDAO;
     private TweetCommentsDAO tweetCommentsDAO;
-    private UserFeedsDAO userFeedsDAO;
     private UserFollowersDAO userFollowersDAO;
     private TweetLikesDAO tweetLikesDAO;
     private AccountDAO accountDAO;
     private ActivityDAO activityDAO;
     
-    private Login_Modal loginModal;
-    private Login_Bean loginBean;
     
  
     public void init() {
@@ -50,13 +47,10 @@ public class ControlServlet extends HttpServlet {
         userDAO = new UserDAO();
         tweetsDAO = new TweetsDAO();
         tweetCommentsDAO = new TweetCommentsDAO();
-        userFeedsDAO = new UserFeedsDAO();
         userFollowersDAO = new UserFollowersDAO();
         tweetLikesDAO = new TweetLikesDAO();
         accountDAO = new AccountDAO();
         activityDAO = new ActivityDAO();
-        loginModal = new Login_Modal();
-        loginBean = new Login_Bean();
     }
  
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -75,6 +69,7 @@ public class ControlServlet extends HttpServlet {
         try {
             switch (action) {
             case "/initialize":
+            	 System.out.println("The action is: initialize");
             	initializeDatabase(request, response);
             	break;
             case "/login": 
@@ -121,7 +116,6 @@ public class ControlServlet extends HttpServlet {
     	userDAO.createDatabase();
     	tweetsDAO.createDatabase();
     	tweetCommentsDAO.createDatabase();
-    	userFeedsDAO.createDatabase();
     	userFollowersDAO.createDatabase();
     	tweetLikesDAO.createDatabase();
     	accountDAO.createDatabase();
@@ -131,11 +125,15 @@ public class ControlServlet extends HttpServlet {
     	userDAO.seedDatabase();
     	tweetsDAO.seedDatabase();
     	tweetCommentsDAO.seedDatabase();
-       	userFeedsDAO.seedDatabase();
        	userFollowersDAO.seedDatabase();
-       	tweetLikesDAO.createDatabase();
+       	tweetLikesDAO.seedDatabase();
     	accountDAO.seedDatabase();
     	activityDAO.seedDatabase();
+    	
+    	 RequestDispatcher dispatcher = request.getRequestDispatcher("NewRootHome.jsp");
+         dispatcher.forward(request, response);
+      
+         System.out.println("initializeDatabase finished: 11111111111111111111111111"); 
     	
     }
     

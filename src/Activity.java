@@ -1,10 +1,11 @@
 public class Activity {
 	protected int id;
 	protected String activityType;
-	protected String created_at;
-	protected String user_FROM;
-	protected String user_TO;
+	protected String createdAt;
+	protected String userFROM;
+	protected String userTO;
 	protected int ppSent; 
+	protected double dollarAmt;
 
 	public Activity() {
 		
@@ -14,17 +15,18 @@ public class Activity {
 		this.id = id;
 	}
 	
-	public Activity(int id, String activityType, String created_at, String user_FROM, String user_TO, int ppSent) {
-		this(activityType, created_at, user_FROM, user_TO, ppSent);
+	public Activity(int id, String activityType, String createdAt, String userFROM, String userTO, int ppSent, double dollarAmt) {
+		this(activityType, createdAt, userFROM, userTO, ppSent, dollarAmt);
 		this.id = id;
 	}
 	
-	public Activity(String activityType, String created_at, String user_FROM, String user_TO, int ppSent) {
+	public Activity(String activityType, String createdAt, String userFROM, String userTO, int ppSent, double dollarAmt) {
 		this.activityType = activityType;
-		this.created_at = created_at;
-		this.user_FROM = user_FROM;
-		this.user_TO = user_TO;
+		this.createdAt = createdAt;
+		this.userFROM = userFROM;
+		this.userTO = userTO;
 		this.ppSent = ppSent;
+		this.dollarAmt = dollarAmt;
 	}
 
 	public int getId() {
@@ -44,27 +46,27 @@ public class Activity {
 	}
 
 	public String getCreated_at() {
-		return created_at;
+		return createdAt;
 	}
 
-	public void setCreated_at(String created_at) {
-		this.created_at = created_at;
+	public void setCreated_at(String createdAt) {
+		this.createdAt = createdAt;
 	}
 
 	public String getUser_FROM() {
-		return user_FROM;
+		return userFROM;
 	}
 
-	public void setUser_FROM(String user_FROM) {
-		this.user_FROM = user_FROM;
+	public void setUser_FROM(String userFROM) {
+		this.userFROM = userFROM;
 	}
 
 	public String getUser_TO() {
-		return user_TO;
+		return userTO;
 	}
 
-	public void setUser_TO(String user_TO) {
-		this.user_TO = user_TO;
+	public void setUser_TO(String userTO) {
+		this.userTO = userTO;
 	}
 
 	public int getPpSent() {
@@ -73,6 +75,14 @@ public class Activity {
 
 	public void setPpSent(int ppSent) {
 		this.ppSent = ppSent;
+	}
+	
+	public double getDollatAmt() {
+		return dollarAmt;
+	}
+	
+	public void setDollarAmt(double dollarAmt) {
+		this.dollarAmt = dollarAmt;
 	}
 
 	

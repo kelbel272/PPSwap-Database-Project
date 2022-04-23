@@ -30,23 +30,24 @@ public class UserFollowersDAO {
         }
     }
 	
-	// Create Tweet Comment Database 
+	// Create User Follower Database 
 	public void createDatabase() {
 		try {
 			connect_func();
 			statement = (Statement) connect.createStatement();
 		statement = connect.createStatement();
 		statement.executeUpdate("SET FOREIGN_KEY_CHECKS = 0");
-		statement.executeUpdate("DROP TABLE IF EXISTS Tweets");
+		statement.executeUpdate("DROP TABLE IF EXISTS UserFollowers");
 		statement.executeUpdate("SET FOREIGN_KEY_CHECKS = 1");
 		
-		String sqlstmt = "CREATE TABLE IF NOT EXISTS Users " +
-                "(id INTEGER not NULL AUTO_INCREMENT, " +
-                " UserID VARCHAR(200), " + 
+		String sqlstmt = "CREATE TABLE IF NOT EXISTS UserFollowers " +
+                "( UserID VARCHAR(200), " + 
                 " FollowerID VARCHAR(50), " + 
-                " Created_At VARCHAR(50), " + 
-                " PRIMARY KEY ( id ))"; 
+                " PRIMARY KEY ( UserID, FollowerID ), " +
+                " FOREIGN KEY ( UserID ) References Users( Email ), " +
+                " FOREIGN KEY ( FollowerID ) References Users( Email ))";
 		statement.executeUpdate(sqlstmt);
+		System.out.println("UserFollowers Database");
 			} catch (Exception e) {
 				System.out.println(e);
 			} finally {
@@ -63,60 +64,50 @@ public class UserFollowersDAO {
 			statement = connect.createStatement();
 			
 			preparedStatement = connect
-					.prepareStatement("insert into UserFollowers(UserID, FollowerID, "
-							+ "Created_At) values (?, ?, ?)");
+					.prepareStatement("insert into UserFollowers(UserID, FollowerID) values (?, ?)");
 			
 			//Insert Comment to Tweet 
 			preparedStatement.setString(1, "kelly@gmail.com");
 			preparedStatement.setString(2, "kylie@gmail.com");
-			preparedStatement.setString(3, "2022.01.12.01:22:66");
 			preparedStatement.executeUpdate();
 			
 			preparedStatement.setString(1, "kylie@gmail.com");
 			preparedStatement.setString(2, "kelly@gmail.com");
-			preparedStatement.setString(3, "2022.01.12.01:22:66");
 			preparedStatement.executeUpdate();
 		
 			preparedStatement.setString(1, "jungkook@gmail.com");
 			preparedStatement.setString(2, "kylie@gmail.com");
-			preparedStatement.setString(3, "2022.01.12.01:22:66");
 			preparedStatement.executeUpdate();
 
 			preparedStatement.setString(1, "kylie@gmail.com");
 			preparedStatement.setString(2, "jungkook@gmail.com");
-			preparedStatement.setString(3, "2022.01.12.01:22:66");
 			preparedStatement.executeUpdate();
 	
 			preparedStatement.setString(1, "squidgames@gmail.com");
 			preparedStatement.setString(2, "kylie@gmail.com");
-			preparedStatement.setString(3, "2022.01.12.01:22:66");
 			preparedStatement.executeUpdate();
 	
 			preparedStatement.setString(1, "kelly@gmail.com");
 			preparedStatement.setString(2, "obama@gmail.com");
-			preparedStatement.setString(3, "2022.01.12.01:22:66");
 			preparedStatement.executeUpdate();
 		
 			preparedStatement.setString(1, "jlo@gmail.com");
 			preparedStatement.setString(2, "hstyles@gmail.com");
-			preparedStatement.setString(3, "2022.01.12.01:22:66");
 			preparedStatement.executeUpdate();
 		
 			preparedStatement.setString(1, "jlo@gmail.com");
 			preparedStatement.setString(2, "halsey@gmail.com");
-			preparedStatement.setString(3, "2022.01.12.01:22:66");
 			preparedStatement.executeUpdate();
 
 			preparedStatement.setString(1, "obama@gmail.com");
 			preparedStatement.setString(2, "hstyles@gmail.com");
-			preparedStatement.setString(3, "2022.01.12.01:22:66");
 			preparedStatement.executeUpdate();
 
 			preparedStatement.setString(1, "kelly@gmail.com");
 			preparedStatement.setString(2, "hstyles@gmail.com");
-			preparedStatement.setString(3, "2022.01.12.01:22:66");
 			preparedStatement.executeUpdate();
 			
+			System.out.println("Sucessfully Seeded UserFollowers Database");
 			//Add 9 more 
 			
 		} catch (Exception e) {

@@ -33,25 +33,29 @@ public class ActivityDAO {
         }
     }
 	
-	// Create Tweet Comment Database 
+	// Create Activity Database 
 	public void createDatabase() {
 		try {
 			connect_func();
 			statement = (Statement) connect.createStatement();
 		statement = connect.createStatement();
 		statement.executeUpdate("SET FOREIGN_KEY_CHECKS = 0");
-		statement.executeUpdate("DROP TABLE IF EXISTS Tweets");
+		statement.executeUpdate("DROP TABLE IF EXISTS Activity");
 		statement.executeUpdate("SET FOREIGN_KEY_CHECKS = 1");
 	
-		String sqlstmt = "CREATE TABLE IF NOT EXISTS Users " +
-                "(id INTEGER not NULL AUTO_INCREMENT, " +
-                " Activity_Type VARCHAR(50), " + 
-                " created_at VARVHAR(200), " + 
-                " User_From VARCHAR(50), " + 
-                " User_To VARCHAR(50), " + 
+		String sqlstmt = "CREATE TABLE IF NOT EXISTS Activity " +
+                "( transid INTEGER not NULL AUTO_INCREMENT, " +
+                " ActivityType VARCHAR(50), " + 
+                " createdAt DATETIME, " + 
+                " UserFrom VARCHAR(50), " + 
+                " UserTo VARCHAR(50), " + 
                 " PPSent INTEGER(50), " + 
-                " PRIMARY KEY ( id ))"; 
+                " dollarAmt DOUBLE, " +
+                " PRIMARY KEY ( transid ), " +
+                " FOREIGN KEY ( UserFrom ) REFERENCES Users(Email), " +
+                " FOREIGN KEY (UserTo ) REFERENCES Users(Email))"; 
 		statement.executeUpdate(sqlstmt);
+		 System.out.println("Activity Table Created");
 			} catch (Exception e) {
 				System.out.println(e);
 			} finally {
@@ -68,66 +72,90 @@ public class ActivityDAO {
 			statement = connect.createStatement();
 			
 			preparedStatement = connect
-					.prepareStatement("insert into Activity(Activity_Type, created_at, "
-							+ "User_From, User_To, PPSent) values (?, ?, ?, ?, ?)");
+					.prepareStatement("insert into Activity(ActivityType, createdAt, "
+							+ "UserFrom, UserTo, PPSent, dollarAmt) values (?, ?, ?, ?, ?, ?)");
 			
 			//Insert Like of Tweet
 			preparedStatement.setString(1, "TRANSFER");
-			preparedStatement.setString(2, "2021.03.12.12:21:56");
+			preparedStatement.setString(2, "2021-01-01 12:22:32");
 			preparedStatement.setString(3, "kelly@gmail.com");
 			preparedStatement.setString(4, "kylie@gmail.com");
 			preparedStatement.setString(5, "1");
+			preparedStatement.setString(6, ".01");
 			preparedStatement.executeUpdate();
 			
 			preparedStatement.setString(1, "BUY");
-			preparedStatement.setString(2, "2021.03.12.12:21:56");
+			preparedStatement.setString(2, "2022-01-23 08:23:29");
 			preparedStatement.setString(3, "root");
 			preparedStatement.setString(4, "jlo@gmail.com");
 			preparedStatement.setString(5, "12");
+			preparedStatement.setString(6, ".12");
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "SELL");
-			preparedStatement.setString(2, "2021.03.12.12:21:56");
+			preparedStatement.setString(2, "2020-04-20 11:23:54");
 			preparedStatement.setString(3, "kelly@gmail.com");
-			preparedStatement.setString(4, "jlo@gmail.com");
+			preparedStatement.setString(4, "root");
 			preparedStatement.setString(5, "100");
+			preparedStatement.setString(6, "1");
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "BUY");
-			preparedStatement.setString(2, "2021.03.12.12:21:56");
+			preparedStatement.setString(2, "2021-02-23 10:23:20");
 			preparedStatement.setString(3, "root");
 			preparedStatement.setString(4, "obama@gmail.com");
 			preparedStatement.setString(5, "200");
+			preparedStatement.setString(6, "2");
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "TRANSFER");
-			preparedStatement.setString(2, "2021.03.12.12:21:56");
+			preparedStatement.setString(2, "2020-03-12 04:15:30");
 			preparedStatement.setString(3, "steveh@gmail.com");
 			preparedStatement.setString(4, "obama@gmail.com");
 			preparedStatement.setString(5, "1900");
+			preparedStatement.setString(6, "19");
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "BUY");
-			preparedStatement.setString(2, "2021.03.12.12:21:56");
+			preparedStatement.setString(2, "2021-08-17 05:23:50");
 			preparedStatement.setString(3, "root");
 			preparedStatement.setString(4, "steveh@gmail.com");
 			preparedStatement.setString(5, "300");
+			preparedStatement.setString(6, "3");
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "SELL");
-			preparedStatement.setString(2, "2021.03.12.12:21:56");
-			preparedStatement.setString(3, "jlo@gmail.com");
-			preparedStatement.setString(4, "kelly@gmail.com");
-			preparedStatement.setString(5, "100");
+			preparedStatement.setString(2, "2021-01-12 01:15:32");
+			preparedStatement.setString(3, "kelly@gmail.com");
+			preparedStatement.setString(4, "root");
+			preparedStatement.setString(5, "10000");
+			preparedStatement.setString(6, "100");
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "BUY");
-			preparedStatement.setString(2, "2021.03.12.12:21:56");
+			preparedStatement.setString(2, "2020-10-23 08:23:40");
 			preparedStatement.setString(3, "root");
 			preparedStatement.setString(4, "hstyles@gmail.com");
 			preparedStatement.setString(5, "10");
+			preparedStatement.setString(6, ".1");
 			preparedStatement.executeUpdate();
-			//Add 9 more 
+			
+			preparedStatement.setString(1, "SELL");
+			preparedStatement.setString(2, "2021-01-12 03:09:43");
+			preparedStatement.setString(3, "kylie@gmail.com");
+			preparedStatement.setString(4, "root");
+			preparedStatement.setString(5, "700");
+			preparedStatement.setString(6, "7");
+			preparedStatement.executeUpdate(); 
+			
+			preparedStatement.setString(1, "SELL");
+			preparedStatement.setString(2, "2021-01-12 04:04:04");
+			preparedStatement.setString(3, "kylie@gmail.com");
+			preparedStatement.setString(4, "root");
+			preparedStatement.setString(5, "500");
+			preparedStatement.setString(6, "5");
+			preparedStatement.executeUpdate(); 
+			System.out.println("Sucessfully Seeded Activity Database");
 			
 		} catch (Exception e) {
 			System.out.println(e);

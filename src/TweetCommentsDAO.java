@@ -37,17 +37,20 @@ public class TweetCommentsDAO {
 			statement = (Statement) connect.createStatement();
 		statement = connect.createStatement();
 		statement.executeUpdate("SET FOREIGN_KEY_CHECKS = 0");
-		statement.executeUpdate("DROP TABLE IF EXISTS Tweets");
+		statement.executeUpdate("DROP TABLE IF EXISTS TweetComments");
 		statement.executeUpdate("SET FOREIGN_KEY_CHECKS = 1");
 		
-		String sqlstmt = "CREATE TABLE IF NOT EXISTS Users " +
+		String sqlstmt = "CREATE TABLE IF NOT EXISTS TweetComments " +
                 "(id INTEGER not NULL AUTO_INCREMENT, " +
-                " PostID INTEGER(50), " + 
+                " TweetID INTEGER(50), " + 
                 " UserID VARCHAR(200), " + 
                 " Comment VARCHAR(50), " + 
-                " Created_At VARCHAR(50), " + 
-                " PRIMARY KEY ( id ))"; 
+                " Created_At DATETIME, " + 
+                " PRIMARY KEY ( id ), " +
+                " FOREIGN KEY ( TweetID ) References Tweets( tweetid ), " +
+                " FOREIGN KEY ( UserID ) References Users( Email ))"; 
 		statement.executeUpdate(sqlstmt);
+		System.out.println("TweetComments Table Created");
 			} catch (Exception e) {
 				System.out.println(e);
 			} finally {
@@ -64,70 +67,97 @@ public class TweetCommentsDAO {
 			statement = connect.createStatement();
 			
 			preparedStatement = connect
-					.prepareStatement("insert into TweetComments(PostID, UserID, Comment, "
+					.prepareStatement("insert into TweetComments(TweetID, UserID, Comment, "
 							+ "Created_At) values (?, ?, ?, ?)");
 			
 			//Insert Comment to Tweet 
 			preparedStatement.setString(1, "1");
 			preparedStatement.setString(2, "kelly@gmail.com");
 			preparedStatement.setString(3, "yaaasssss");
-			preparedStatement.setString(4, "2022.01.12.01:22:66");
+			preparedStatement.setString(4, "2020-12-23 09:23:40");
 			preparedStatement.executeUpdate();
 			
 			preparedStatement.setString(1, "2");
 			preparedStatement.setString(2, "kelly@gmail.com");
 			preparedStatement.setString(3, "what a mood");
-			preparedStatement.setString(4, "2022.03.08.12:22:66");
+			preparedStatement.setString(4, "2021-05-23 09:23:40");
 			preparedStatement.executeUpdate();
 			
 			preparedStatement.setString(1, "3");
 			preparedStatement.setString(2, "kylie@gmail.com");
 			preparedStatement.setString(3, "<3");
-			preparedStatement.setString(4, "2022.03.08.18:21:58");
+			preparedStatement.setString(4, "2022-01-24 08:23:40");
 			preparedStatement.executeUpdate();
 	
 			preparedStatement.setString(1, "4");
 			preparedStatement.setString(2, "jungkook@gmail.com");
 			preparedStatement.setString(3, "#love_yourself");
-			preparedStatement.setString(4, "2022.03.08.12:21:48");
+			preparedStatement.setString(4, "2020-10-23 08:24:40");
 			preparedStatement.executeUpdate();
 		
 			preparedStatement.setString(1, "5");
 			preparedStatement.setString(2, "hstyles@gmail.com");
 			preparedStatement.setString(3, "whaaaat");
-			preparedStatement.setString(4, "2022.03.08.12:21:58");
+			preparedStatement.setString(4, "2021-09-23 10:23:40");
 			preparedStatement.executeUpdate();
 			
 			preparedStatement.setString(1, "6");
 			preparedStatement.setString(2, "halsey@gmail.com");
 			preparedStatement.setString(3, "naur");
-			preparedStatement.setString(4, "2022.03.08.12:21:58");
+			preparedStatement.setString(4, "2020-10-23 08:24:40");
 			preparedStatement.executeUpdate();
 
 			preparedStatement.setString(1, "6");
 			preparedStatement.setString(2, "kylie@gmail.com");
 			preparedStatement.setString(3, "what the-");
-			preparedStatement.setString(4, "2022.03.08.12:21:58");
+			preparedStatement.setString(4, "2020-10-23 09:30:40");
 			preparedStatement.executeUpdate();
 		
-			preparedStatement.setString(1, "7");
+			preparedStatement.setString(1, "9");
 			preparedStatement.setString(2, "squidgames@gmail.com");
 			preparedStatement.setString(3, ":D");
-			preparedStatement.setString(4, "2022.03.08.23:21:58");
+			preparedStatement.setString(4, "2020-04-20 08:23:45");
 			preparedStatement.executeUpdate();
 		
 			preparedStatement.setString(1, "8");
 			preparedStatement.setString(2, "obama@gmail.com");
 			preparedStatement.setString(3, "me too");
-			preparedStatement.setString(4, "2022.03.08.1221:58");
+			preparedStatement.setString(4, "2020-10-23 09:23:40");
 			preparedStatement.executeUpdate();
 	
 			preparedStatement.setString(1, "9");
 			preparedStatement.setString(2, "jlo@gmail.com");
 			preparedStatement.setString(3, ":p");
-			preparedStatement.setString(4, "2022.03.08.15:21:58");
+			preparedStatement.setString(4, "2020-10-23 09:23:40");
 			preparedStatement.executeUpdate();
+			
+			preparedStatement.setString(1, "3");
+			preparedStatement.setString(2, "kbates@gmail.com");
+			preparedStatement.setString(3, "cool");
+			preparedStatement.setString(4, "2021-01-23 09:23:40");
+			preparedStatement.executeUpdate();
+			
+			preparedStatement.setString(1, "3");
+			preparedStatement.setString(2, "houseofcards@gmail.com");
+			preparedStatement.setString(3, "omg");
+			preparedStatement.setString(4, "2021-01-24 09:23:40");
+			preparedStatement.executeUpdate();
+			
 		
+			preparedStatement.setString(1, "4");
+			preparedStatement.setString(2, "kbates@gmail.com");
+			preparedStatement.setString(3, "omggggg");
+			preparedStatement.setString(4, "2022-01-23 09:23:40");
+			preparedStatement.executeUpdate();
+			
+			preparedStatement.setString(1, "4");
+			preparedStatement.setString(2, "houseofcards@gmail.com");
+			preparedStatement.setString(3, "thats pretty weird man");
+			preparedStatement.setString(4, "2022-01-24 09:23:40");
+			preparedStatement.executeUpdate();
+			
+			
+			System.out.println("Sucessfully Seeded TweetComments Database");
 			
 		} catch (Exception e) {
 			System.out.println(e);

@@ -1,8 +1,7 @@
 
 
 public class User {
-    protected int id;
-    protected String userID;
+    protected String email;
     protected String password;
     protected String fname;
     protected String lname;
@@ -16,18 +15,9 @@ public class User {
  
     public User() {
     }
- 
-    public User(int id) {
-        this.id = id;
-    }
- 
-    public User(int id, String userID, String password, String fname, String lname, String birthdate, String street, String unit, String city, String state, String zipcode) {
-        this(userID, password, fname, lname, birthdate, street, unit, city, state, zipcode);
-        this.id = id;
-    }
      
-    public User(String userID, String password, String fname, String lname, String birthdate, String street, String unit, String city, String state, String zipcode) {
-        this.userID = userID;
+    public User(String email, String password, String fname, String lname, String birthdate, String street, String unit, String city, String state, String zipcode) {
+        this.email = email;
         this.password = password;
     	this.fname = fname;
         this.lname = lname;
@@ -39,21 +29,13 @@ public class User {
         this.zipcode = zipcode;
         
     }
- 
-    public int getId() {
-        return id;
-    }
- 
-    public void setId(int id) {
-        this.id = id;
+    
+    public String getEmail() {
+    	return email;
     }
     
-    public String getUserID() {
-    	return userID;
-    }
-    
-    public void setUserID(String userID) {
-    	this.userID = userID;
+    public void setUserID(String email) {
+    	this.email = email;
     }
     
     public String getPassword() {

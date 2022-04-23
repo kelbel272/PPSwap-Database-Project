@@ -5,9 +5,9 @@
     margin: 0;
     padding: 0;
     background: #501D6D;
-    font-family: Montserrat-Medium; 
+    font-family: "Montserrat-Medium", sans-serif; 
     color: white; 
-  }
+ }
 
 /* Montserrat Light Font */
 @font-face {
@@ -69,7 +69,6 @@ input[type=text], input[type=password], input[type=email], input[type=DATE] {
     background-position: 10px 10px;
     background-repeat: no-repeat;
     /* margin: 10px 90px; */
-
     width: 70%;
     min-width: 300px;
     height: 45px;
@@ -94,7 +93,7 @@ input[type=submit] {
     width: 300px;
     height: 45px;
     border: 1px solid #FFFFFF;
-    font-family: "Montserrat-SemiBold";
+    font-family: "Montserrat-SemiBold", sans-serif;
     color: #501D6D;
     font-size: 16px;
     border-radius: 4px;
@@ -115,7 +114,7 @@ input[type=submit] {
     border-radius: 4px;
     color:#FFFFFF;
     font-weight: 300;
-    font-size: 14px;;
+    font-size: 14px;
 /* identical to box height, or 143% */
     justify-content: center;
     text-transform: uppercase;

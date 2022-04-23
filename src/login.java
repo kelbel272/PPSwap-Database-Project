@@ -29,8 +29,8 @@ public class login  {
                    "(id INTEGER NOT NULL AUTO_INCREMENT,  " +
                    " userID VARCHAR(50), " + 
                    " password VARCHAR(50), " + 
-                   " created_at DATETIME DEFAULT CURRENT_TIMESTAMP, "
-                   " PRIMARY KEY ( userID ))"; 
+                   " created_at DATETIME DEFAULT CURRENT_TIMESTAMP, " +
+                   " PRIMARY_KEY ( userID ))"; 
 
     String sql3 = "insert into  Student(id, userID, password) values (?, ?, ?)";
     String sql4 = "insert into  Student(id, userID, password) values (\"2\", \"John Liu\", \"345 Database Road, Troy, MI 48083\", \"junior\")";
@@ -38,7 +38,7 @@ public class login  {
     String sql6 = "DELETE FROM Student WHERE Name=\"Shiyong Lu\"";
     String sql7 = "SELECT id, Name FROM Student";
     String sql8 = "SELECT Name FROM Student WHERE id > 4999";
-    String sql3 = "insert into  Login(userID, password) values (?, ?)";
+    String sql9 = "insert into  Login(userID, password) values (?, ?)";
 
   System.out.println("LOGIN TEST");
   

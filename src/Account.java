@@ -1,7 +1,7 @@
 public class Account {
 	protected int id;
 	protected String userID;
-	protected double balance;
+	protected int balance;
 	protected int ppswapTotal;
 	//account info (id, userID, money in account, amount of ppswap owned)
 	public Account() {
@@ -12,12 +12,12 @@ public class Account {
 		this.id = id;
 	}
 	
-	public Account(int id, String userID, double balance, int ppswapTotal) {
+	public Account(int id, String userID, int balance, int ppswapTotal) {
 		this(userID, balance, ppswapTotal);
 		this.id = id;
 	}
 	
-	public Account(String userID, double balance, int ppswapTotal) {
+	public Account(String userID, int balance, int ppswapTotal) {
 		this.userID = userID;
 		this.balance = balance;
 		this.ppswapTotal = ppswapTotal;
@@ -39,11 +39,11 @@ public class Account {
 		this.userID = userID;
 	}
 
-	public double getBalance() {
+	public int getBalance() {
 		return balance;
 	}
 
-	public void setBalance(double balance) {
+	public void setBalance(int balance) {
 		this.balance = balance;
 	}
 

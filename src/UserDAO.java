@@ -50,8 +50,7 @@ public class UserDAO {
 		statement.executeUpdate("SET FOREIGN_KEY_CHECKS = 1");
 		
 		String sqlstmt = "CREATE TABLE IF NOT EXISTS Users " +
-                "(id INTEGER not NULL AUTO_INCREMENT, " +
-                " UserID VARCHAR(50), " + 
+                "( Email VARCHAR(50), " + 
                 " Password VARCHAR(50), " + 
                 " First_Name VARCHAR(50), " + 
                 " Last_Name VARCHAR(50), " + 
@@ -61,9 +60,11 @@ public class UserDAO {
                 " City VARCHAR(50), " + 
                 " State VARCHAR(50), " + 
                 " Zipcode VARCHAR(50), " + 
-                " PRIMARY KEY ( id ))"; 
+                " PRIMARY KEY ( Email ))"; 
 		statement.executeUpdate(sqlstmt);
+		System.out.println("User Table Created");
 		statement.close();
+		
 			} catch (Exception e) {
 				System.out.println(e);
 			} finally {
@@ -79,7 +80,7 @@ public class UserDAO {
 			statement = connect.createStatement();
 			
 			preparedStatement = connect
-					.prepareStatement("insert into Users(UserID, Password, First_Name, "
+					.prepareStatement("insert into Users(Email, Password, First_Name, "
 							+ "Last_Name, Birthdate, Street, Unit, City, State, "
 							+ "Zipcode) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			
@@ -211,6 +212,70 @@ public class UserDAO {
             preparedStatement.setString(10, "97321");
             preparedStatement.executeUpdate();
             
+            preparedStatement.setString(1, "jjonas@gmail.com");
+            preparedStatement.setString(2, "joebro");
+            preparedStatement.setString(3, "Joe");
+            preparedStatement.setString(4, "Jonas");
+            preparedStatement.setString(5, "09/29/1984");
+            preparedStatement.setString(6, "9301 Jonas Ave");
+            preparedStatement.setString(7, "");
+            preparedStatement.setString(8, "Wyckoff");
+            preparedStatement.setString(9, "New Jersey");
+            preparedStatement.setString(10, "07481");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "kjonas@gmail.com");
+            preparedStatement.setString(2, "kevin");
+            preparedStatement.setString(3, "Kevin");
+            preparedStatement.setString(4, "Jonas");
+            preparedStatement.setString(5, "09/29/1984");
+            preparedStatement.setString(6, "9301 Jonas Ave");
+            preparedStatement.setString(7, "");
+            preparedStatement.setString(8, "Wyckoff");
+            preparedStatement.setString(9, "New Jersey");
+            preparedStatement.setString(10, "07481");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "njonas@gmail.com");
+            preparedStatement.setString(2, "nickbro");
+            preparedStatement.setString(3, "Nick");
+            preparedStatement.setString(4, "Jonas");
+            preparedStatement.setString(5, "09/29/1984");
+            preparedStatement.setString(6, "9301 Jonas Ave");
+            preparedStatement.setString(7, "");
+            preparedStatement.setString(8, "Wyckoff");
+            preparedStatement.setString(9, "New Jersey");
+            preparedStatement.setString(10, "07481");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "kbates@gmail.com");
+            preparedStatement.setString(2, "laugh");
+            preparedStatement.setString(3, "Kathy");
+            preparedStatement.setString(4, "Bates");
+            preparedStatement.setString(5, "06/28/1948");
+            preparedStatement.setString(6, "111 Southern Way");
+            preparedStatement.setString(7, "");
+            preparedStatement.setString(8, "Malibu");
+            preparedStatement.setString(9, "California");
+            preparedStatement.setString(10, "90263");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "houseofcards@gmail.com");
+            preparedStatement.setString(2, "frankthetank");
+            preparedStatement.setString(3, "Frank");
+            preparedStatement.setString(4, "Underwood");
+            preparedStatement.setString(5, "08/08/1963");
+            preparedStatement.setString(6, "1234 Outfield Way");
+            preparedStatement.setString(7, "");
+            preparedStatement.setString(8, "Washington");
+            preparedStatement.setString(9, "D.C.");
+            preparedStatement.setString(10, "20001");
+            preparedStatement.executeUpdate();
+            
+          
+            
+            System.out.println("Sucessfully Seeded User Database");
+            
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -218,10 +283,10 @@ public class UserDAO {
 	
 	public boolean insert(User user) throws SQLException {
     	connect_func();         
-		String sql = "insert into  Users(UserID, Password, First_Name, Last_Name, Birthdate, Street, Unit, "
+		String sql = "insert into  Users(Email, Password, First_Name, Last_Name, Birthdate, Street, Unit, "
 				+ "City, State, Zipcode ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		preparedStatement = (PreparedStatement) connect.prepareStatement(sql);
-		preparedStatement.setString(1, user.userID);
+		preparedStatement.setString(1, user.email);
 		preparedStatement.setString(2, user.password);
 		preparedStatement.setString(3, user.fname);
 		preparedStatement.setString(4, user.lname);
@@ -229,8 +294,8 @@ public class UserDAO {
 		preparedStatement.setString(6, user.street);
 		preparedStatement.setString(7, user.unit);
 		preparedStatement.setString(8, user.city);
-		preparedStatement.setString(8, user.state);
-		preparedStatement.setString(8, user.zipcode);
+		preparedStatement.setString(9, user.state);
+		preparedStatement.setString(10, user.zipcode);
 		
 //		preparedStatement.executeUpdate();
 		
@@ -246,7 +311,7 @@ public class UserDAO {
 			connect_func();
 			statement = (Statement) connect.createStatement();
 			
-		String sqlstmt = "Select * from Users where UserID='" + username + "' and password= '" + password;
+		String sqlstmt = "Select * from Users where Email='" + username + "' and password= '" + password;
 		ResultSet rs = statement.executeQuery(sqlstmt);
 			if (rs.next()) 
 				flag = true;
@@ -264,7 +329,7 @@ public class UserDAO {
 			connect_func();
 			statement = (Statement) connect.createStatement();
 			
-		String sqlstmt = "Select * from Admin where UserID='" + username + "' and password= '" + password;
+		String sqlstmt = "Select * from Admin where Email='" + username + "' and password= '" + password;
 		ResultSet rs = statement.executeQuery(sqlstmt);
 			if (rs.next()) 
 				flag = true;

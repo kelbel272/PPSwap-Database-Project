@@ -1,6 +1,6 @@
 public class TweetComments {
 	protected int id;
-	protected int postID;
+	protected int TweetID;
 	protected String userID;
 	protected String comment;
 	protected String created_at;
@@ -13,13 +13,13 @@ public class TweetComments {
 		this.id = id;
 	}
 	
-	public TweetComments(int id, int postID, String userID, String comment, String created_at) {
-		this(postID, userID, comment, created_at);
+	public TweetComments(int id, int TweetID, String userID, String comment, String created_at) {
+		this(TweetID, userID, comment, created_at);
 		this.id = id;
 	}
 	
-	public TweetComments(int postID, String userID, String comment, String created_at) {
-		this.postID = postID;
+	public TweetComments(int TweetID, String userID, String comment, String created_at) {
+		this.TweetID = TweetID;
 		this.userID = userID;
 		this.comment = comment;
 		this.created_at = created_at;
@@ -33,12 +33,12 @@ public class TweetComments {
 		this.id = id;
 	}
 
-	public int getPostID() {
-		return postID;
+	public int getTweetID() {
+		return TweetID;
 	}
 
-	public void setPostID(int postID) {
-		this.postID = postID;
+	public void setTweetID(int TweetID) {
+		this.TweetID = TweetID;
 	}
 
 	public String getUserID() {

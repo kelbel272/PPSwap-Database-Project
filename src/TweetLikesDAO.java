@@ -33,23 +33,25 @@ public class TweetLikesDAO {
         }
     }
 	
-	// Create Tweet Comment Database 
+	// Create TweetLikes Database 
 	public void createDatabase() {
 		try {
 			connect_func();
 			statement = (Statement) connect.createStatement();
 		statement = connect.createStatement();
 		statement.executeUpdate("SET FOREIGN_KEY_CHECKS = 0");
-		statement.executeUpdate("DROP TABLE IF EXISTS Tweets");
+		statement.executeUpdate("DROP TABLE IF EXISTS TweetLikes");
 		statement.executeUpdate("SET FOREIGN_KEY_CHECKS = 1");
 	
-		String sqlstmt = "CREATE TABLE IF NOT EXISTS Users " +
-                "(id INTEGER not NULL AUTO_INCREMENT, " +
-                " PostID INTEGER(50), " + 
+		String sqlstmt = "CREATE TABLE IF NOT EXISTS TweetLikes " +
+                "( tweetid INTEGER not NULL, " +
                 " UserID VARCHAR(200), " + 
-                " Created_At VARCHAR(50), " + 
-                " PRIMARY KEY ( id ))"; 
+                " CreatedAt VARCHAR(50), " + 
+                " PRIMARY KEY ( tweetid, UserID ), " +
+                " FOREIGN KEY ( tweetid ) References Tweets( tweetid ), " + 
+                " FOREIGN KEY ( UserID ) References Users( Email ))"; 
 		statement.executeUpdate(sqlstmt);
+		System.out.println("TweetLikes Table Created");
 			} catch (Exception e) {
 				System.out.println(e);
 			} finally {
@@ -66,8 +68,8 @@ public class TweetLikesDAO {
 			statement = connect.createStatement();
 			
 			preparedStatement = connect
-					.prepareStatement("insert into TweetComments(PostID, UserID, "
-							+ "Created_At) values (?, ?, ?)");
+					.prepareStatement("insert into TweetLikes(tweetid, UserID, " 
+							+ "CreatedAt) values (?, ?, ?)");
 			
 			//Insert Like of Tweet
 			preparedStatement.setString(1, "1");
@@ -119,7 +121,50 @@ public class TweetLikesDAO {
             preparedStatement.setString(2, "jungkook@gmail.com");
             preparedStatement.setString(3, "2022.03.07.12:22:16");
             preparedStatement.executeUpdate();
-			//Add 9 more 
+            
+            preparedStatement.setString(1, "1");
+            preparedStatement.setString(2, "kbates@gmail.com");
+            preparedStatement.setString(3, "2022.03.07.12:22:16");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "1");
+            preparedStatement.setString(2, "houseofcards@gmail.com");
+            preparedStatement.setString(3, "2022.03.07.12:22:16");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "2");
+            preparedStatement.setString(2, "kbates@gmail.com");
+            preparedStatement.setString(3, "2022.03.07.12:22:16");
+            preparedStatement.executeUpdate();
+            
+          
+            
+           /* preparedStatement.setString(1, "11");
+            preparedStatement.setString(2, "kylie@gmail.com");
+            preparedStatement.setString(3, "2022.03.07.12:22:16");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "11");
+            preparedStatement.setString(2, "unclephil@gmail.com");
+            preparedStatement.setString(3, "2022.03.07.12:22:16");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "11");
+            preparedStatement.setString(2, "cbanks@gmail.com");
+            preparedStatement.setString(3, "2022.03.07.12:22:16");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "11");
+            preparedStatement.setString(2, "jlo@gmail.com");
+            preparedStatement.setString(3, "2022.03.07.12:22:16");
+            preparedStatement.executeUpdate();
+            
+            preparedStatement.setString(1, "11");
+            preparedStatement.setString(2, "hstyles@gmail.com");
+            preparedStatement.setString(3, "2022.03.07.12:22:16");
+            preparedStatement.executeUpdate();*/
+            
+            System.out.println("Sucessfully Seeded TweetLikes Database");
 			
 		} catch (Exception e) {
 			System.out.println(e);
