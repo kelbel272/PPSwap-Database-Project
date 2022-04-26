@@ -77,7 +77,7 @@ public class ActivityDAO {
 			
 			//Insert Like of Tweet
 			preparedStatement.setString(1, "TRANSFER");
-			preparedStatement.setString(2, "2021-01-01 12:22:32");
+			preparedStatement.setDate(2, "2021-01-01 12:22:32");
 			preparedStatement.setString(3, "kelly@gmail.com");
 			preparedStatement.setString(4, "kylie@gmail.com");
 			preparedStatement.setInt(5, "1");
@@ -85,7 +85,7 @@ public class ActivityDAO {
 			preparedStatement.executeUpdate();
 			
 			preparedStatement.setString(1, "BUY");
-			preparedStatement.setString(2, "2022-01-23 08:23:29");
+			preparedStatement.setDate(2, "2022-01-23 08:23:29");
 			preparedStatement.setString(3, "root");
 			preparedStatement.setString(4, "jlo@gmail.com");
 			preparedStatement.setInt(5, "12");
@@ -93,7 +93,7 @@ public class ActivityDAO {
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "SELL");
-			preparedStatement.setString(2, "2020-04-20 11:23:54");
+			preparedStatement.setDate(2, "2020-04-20 11:23:54");
 			preparedStatement.setString(3, "kelly@gmail.com");
 			preparedStatement.setString(4, "root");
 			preparedStatement.setInt(5, "100");
@@ -101,7 +101,7 @@ public class ActivityDAO {
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "BUY");
-			preparedStatement.setString(2, "2021-02-23 10:23:20");
+			preparedStatement.setDate(2, "2021-02-23 10:23:20");
 			preparedStatement.setString(3, "root");
 			preparedStatement.setString(4, "obama@gmail.com");
 			preparedStatement.setInt(5, "200");
@@ -109,7 +109,7 @@ public class ActivityDAO {
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "TRANSFER");
-			preparedStatement.setString(2, "2020-03-12 04:15:30");
+			preparedStatement.setDate(2, "2020-03-12 04:15:30");
 			preparedStatement.setString(3, "steveh@gmail.com");
 			preparedStatement.setString(4, "obama@gmail.com");
 			preparedStatement.setInt(5, "1900");
@@ -117,7 +117,7 @@ public class ActivityDAO {
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "BUY");
-			preparedStatement.setString(2, "2021-08-17 05:23:50");
+			preparedStatement.setDate(2, "2021-08-17 05:23:50");
 			preparedStatement.setString(3, "root");
 			preparedStatement.setString(4, "steveh@gmail.com");
 			preparedStatement.setInt(5, "300");
@@ -125,7 +125,7 @@ public class ActivityDAO {
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "SELL");
-			preparedStatement.setString(2, "2021-01-12 01:15:32");
+			preparedStatement.setDate(2, "2021-01-12 01:15:32");
 			preparedStatement.setString(3, "kelly@gmail.com");
 			preparedStatement.setString(4, "root");
 			preparedStatement.setInt(5, "10000");
@@ -133,7 +133,7 @@ public class ActivityDAO {
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "BUY");
-			preparedStatement.setString(2, "2020-10-23 08:23:40");
+			preparedStatement.setDate(2, "2020-10-23 08:23:40");
 			preparedStatement.setString(3, "root");
 			preparedStatement.setString(4, "hstyles@gmail.com");
 			preparedStatement.setInt(5, "10");
@@ -141,7 +141,7 @@ public class ActivityDAO {
 			preparedStatement.executeUpdate();
 			
 			preparedStatement.setString(1, "SELL");
-			preparedStatement.setString(2, "2021-01-12 03:09:43");
+			preparedStatement.setDate(2, "2021-01-12 03:09:43");
 			preparedStatement.setString(3, "kylie@gmail.com");
 			preparedStatement.setString(4, "root");
 			preparedStatement.setInt(5, "700");
@@ -149,7 +149,7 @@ public class ActivityDAO {
 			preparedStatement.executeUpdate(); 
 			
 			preparedStatement.setString(1, "SELL");
-			preparedStatement.setString(2, "2021-01-12 04:04:04");
+			preparedStatement.setDate(2, "2021-01-12 04:04:04");
 			preparedStatement.setString(3, "kylie@gmail.com");
 			preparedStatement.setString(4, "root");
 			preparedStatement.setInt(5, "500");
