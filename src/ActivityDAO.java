@@ -53,7 +53,7 @@ public class ActivityDAO {
                 " dollarAmt DOUBLE, " +
                 " PRIMARY KEY ( transid ), " +
                 " FOREIGN KEY ( UserFrom ) REFERENCES Users(Email), " +
-                " FOREIGN KEY (UserTo ) REFERENCES Users(Email))"; 
+                " FOREIGN KEY ( UserTo ) REFERENCES Users(Email))"; 
 		statement.executeUpdate(sqlstmt);
 		 System.out.println("Activity Table Created");
 			} catch (Exception e) {
@@ -162,6 +162,35 @@ public class ActivityDAO {
 		}
 	}
 	
+	public Activity getActivity(String UserID) throws SQLException {
+		
+    	Activity activity = null;
+		
+        String sql = "SELECT * FROM Activity WHERE UserFrom or UserTo = ?";
+         
+        connect_func();
+         
+        preparedStatement = (PreparedStatement) connect.prepareStatement(sql);
+        preparedStatement.setString(1, UserID);
+         
+        
+        if (resultSet.next()) {
+	    String activityType = resultSet.getString("ActivityType");
+            String createdAt = resultSet.getString("createdAt");
+            String userFrom = resultSet.getString("UserFrom");
+            String userTo = resultSet.getString("UserTo");
+	    int ppSent = resultSet.getInt("PPSent");
+	    double dollarAmt = resultSet.getDouble("dollarAmt");
+	    
+             
+            activity = new Activity(activityType, createdAt, userFrom, userTo, ppSent, dollarAmt);
+        }
+         
+        resultSet.close();
+        statement.close();
+         
+        return activity;
+    }
 	
 	       
     /**
