@@ -192,6 +192,30 @@ public class ActivityDAO {
         return activity;
     }
 	
+	public List<Activity> listActivity() throws SQLException {
+        List<Activity> listActivity = new ArrayList<Activity>();        
+        String sql = "SELECT * FROM Activity WHERE UserFrom or UserTo = ?";
+        connect_func();      
+        statement =  (Statement) connect.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+         
+        while (resultSet.next()) {
+            String activityType = resultSet.getString("ActivityType");
+            String createdAt = resultSet.getString("createdAt");
+            String userFrom = resultSet.getString("UserFrom");
+            String userTo = resultSet.getString("UserTo");
+	    int ppSent = resultSet.getInt("PPSent");
+	    double dollarAmt = resultSet.getDouble("dollarAmt");
+             
+            Activity activity = new Activity(activityType, createdAt, userFrom, userTo, ppSent, dollarAmt);
+            listActivity.add(activity);
+        }        
+        resultSet.close();
+        statement.close();         
+        disconnect();        
+        return listActivity;
+    }
+	
 	       
     /**
      * @see HttpServlet#HttpServlet()
