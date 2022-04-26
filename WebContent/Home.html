@@ -60,6 +60,18 @@
             </div>
         </div>
     </div>
+    <table border="1" cellpadding="5">
+            <caption><h2>List of Tweets</h2></caption>
+            <c:forEach var="tweets" items="${listPeople}">
+                <tr>
+                    <td>Name<c:out value="${people.id}" /></td>
+                    <td>Tweet<c:out value="${people.name}" /></td>
+                    <td>Created At<c:out value="${people.address}" /></td>
+                </tr>
+            </c:forEach>
+        </table>
+    
+    </div>
 <center>
 <h1>Home Page</h1>
 <table>
