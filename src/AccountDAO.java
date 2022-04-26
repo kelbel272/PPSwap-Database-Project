@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 /**
  * Servlet implementation class Connect
+ studentId = Integer.parseInt(request.getParameter("StudentId"));
  */
 
 public class AccountDAO {     
