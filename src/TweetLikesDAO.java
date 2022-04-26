@@ -72,67 +72,67 @@ public class TweetLikesDAO {
 							+ "CreatedAt) values (?, ?, ?)");
 			
 			//Insert Like of Tweet
-			preparedStatement.setString(1, "1");
+			preparedStatement.setInt(1, "1");
 			preparedStatement.setString(2, "kelly@gmail.com");
 			preparedStatement.setString(3, "2022.01.12.01:22:66");
 			preparedStatement.executeUpdate();
 			
-			preparedStatement.setString(1, "2");
+			preparedStatement.setInt(1, "2");
             preparedStatement.setString(2, "kelly@gmail.com");
             preparedStatement.setString(3, "2022.03.01.02:12:60");
             preparedStatement.executeUpdate();
             
-            preparedStatement.setString(1, "3");
+            preparedStatement.setInt(1, "3");
             preparedStatement.setString(2, "jungkook@gmail.com");
             preparedStatement.setString(3, "2022.03.08.08:22:66");
             preparedStatement.executeUpdate();
 
-            preparedStatement.setString(1, "3");
+            preparedStatement.setInt(1, "3");
             preparedStatement.setString(2, "squidgames@gmail.com");
             preparedStatement.setString(3, "2022.03.03.12:32:46");
             preparedStatement.executeUpdate();
 
-            preparedStatement.setString(1, "5");
+            preparedStatement.setInt(1, "5");
             preparedStatement.setString(2, "kylie@gmail.com");
             preparedStatement.setString(3, "2022.03.09.01824:26");
             preparedStatement.executeUpdate();
 
-            preparedStatement.setString(1, "6");
+            preparedStatement.setInt(1, "6");
             preparedStatement.setString(2, "steveh@gmail.com");
             preparedStatement.setString(3, "2022.02.28.02:22:66");
             preparedStatement.executeUpdate();
 
-            preparedStatement.setString(1, "6");
+            preparedStatement.setInt(1, "6");
             preparedStatement.setString(2, "hstyles@gmail.com");
             preparedStatement.setString(3, "2022.03.09.03:12:26");
             preparedStatement.executeUpdate();
 
-            preparedStatement.setString(1, "1");
+            preparedStatement.setInt(1, "1");
             preparedStatement.setString(2, "jlo@gmail.com");
             preparedStatement.setString(3, "2022.03.01.02:22:66");
             preparedStatement.executeUpdate();
 
-            preparedStatement.setString(1, "10");
+            preparedStatement.setInt(1, "10");
             preparedStatement.setString(2, "halsey@gmail.com");
             preparedStatement.setString(3, "2022.02.28.03:12:66");
             preparedStatement.executeUpdate(); 
 
-            preparedStatement.setString(1, "10");
+            preparedStatement.setInt(1, "10");
             preparedStatement.setString(2, "jungkook@gmail.com");
             preparedStatement.setString(3, "2022.03.07.12:22:16");
             preparedStatement.executeUpdate();
             
-            preparedStatement.setString(1, "1");
+            preparedStatement.setInt(1, "1");
             preparedStatement.setString(2, "kbates@gmail.com");
             preparedStatement.setString(3, "2022.03.07.12:22:16");
             preparedStatement.executeUpdate();
             
-            preparedStatement.setString(1, "1");
+            preparedStatement.setInt(1, "1");
             preparedStatement.setString(2, "houseofcards@gmail.com");
             preparedStatement.setString(3, "2022.03.07.12:22:16");
             preparedStatement.executeUpdate();
             
-            preparedStatement.setString(1, "2");
+            preparedStatement.setInt(1, "2");
             preparedStatement.setString(2, "kbates@gmail.com");
             preparedStatement.setString(3, "2022.03.07.12:22:16");
             preparedStatement.executeUpdate();
