@@ -33,7 +33,7 @@
 </nav>
 
 <!-- Home Page -->
-<div style="margin-left:25%">
+<div style="margin-left:20%">
     <!-- Search Bar -->
         <input type="text" name="search" placeholder="Search...">
 
@@ -42,8 +42,10 @@
     </div>
     <div class="post-div">
         <div class="post-comment-div">
-            <img style="height: 88px; width: 88px;" src="/WebContent/assets/images/User.png">
+            <div class="comment">
+                <img id = "profile-pic" style="height: 88px; width: 88px;" src="/WebContent/assets/images/User.png">
                 <input type="text" name="tweet" placeholder="Whats on your mind?">
+            </div>
             <div class="post-line">  </div> <button>Create Post</button>
         </div>
     </div>
@@ -60,29 +62,31 @@
             </div>
         </div>
     </div>
-    <table border="1" cellpadding="5">
-            <caption><h2>List of Tweets</h2></caption>
-            <c:forEach var="tweets" items="${listPeople}">
-                <tr>
-                    <td>Name<c:out value="${people.id}" /></td>
-                    <td>Tweet<c:out value="${people.name}" /></td>
-                    <td>Created At<c:out value="${people.address}" /></td>
-                </tr>
-            </c:forEach>
-        </table>
+    <div class="tweets">
+    	<form action="ListTweets" method="get">
+    	<c:forEach var="tweets" items="${listTweets}">
+        <div class="tweet-container" >
+            <img style="height: 88px; width: 88px;" src="images/User.png">
+            <div class="tweet-content">
+                <div class="tweet-info">
+                    <div class="tweet-author"><c:out value="${tweets.userID}" /></div>
+                    <span class="dot"></span>
+                    <div class="tweet-time">12m</div>
+                </div>
+                <div class="user-tweet"><c:out value="${tweets.tweet}" /></div>
+            </div>
+            <div class="like-comment-icons">
+                <img style="height: 88px; width: 88px;" src="images/Like.png">
+                <img style="height: 88px; width: 88px;" src="images/Comment.png">
+            </div>
+        </div>
+        </c:forEach>
+        <button>List Tweets</button>
+        </form>
+    </div>
     
     </div>
-<center>
-<h1>Home Page</h1>
-<table>
-<tr>
-<td><a href="Home1.jsp">Home</a></td>
-<td><a href="My_Profile.jsp">Profile</a></td>
-<td> Welcome <%=obj_Login_Bean.getUserID() %></td>
-<td><a href="Signout_controller.jsp">Log Out</a></td>
-</tr>
-</table>
-</center>
+
 </div>
 
 </body>

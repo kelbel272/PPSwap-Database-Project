@@ -32,10 +32,9 @@
 
 /* Side Navigation Bar*/
 .sidenav {
-    padding-left: 28px;
-    padding-right: 28px;
+   
     height: 100%;
-    width: 306px;
+    width: 35vh;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -50,10 +49,9 @@
 /* The navigation menu links */
 .sidenav a {
     height: 46px;
-    width: 250px;
+    width: 70%;
     margin: 9.5px; /* Top & Bottom = 20px, Left & Right = 8px */
-    padding-left: 11px;
-    padding-top: 11px;
+    padding-left: 15px;
     position: relative;
     text-decoration: none;
     font-style: normal;
@@ -82,7 +80,7 @@
 .arrow {
     width: 24px;
     height: 24px;
-    padding-left: 99px;
+    float: right;
     line-height: 21px;
     align-self: flex-end;
 }
@@ -163,13 +161,14 @@ button {
     background: #5932EA;
     color: white;
     border-radius: 8px;
-
+    float: right;
+    margin: 5%;
 }
 
-.profile-pic {
-    padding-right: 22px;
-    height: 84px;
-    width: 84px;
+.comment {
+  display: flex;
+  justify-content: center;
+  padding-top: 3%;
 }
 
 .tweets {
@@ -268,4 +267,14 @@ button {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .tweet-info {
+    display: flex;
+  }
+
+
+  .like-comment-icons {
+    display: flex;
+    float: right;
   }
