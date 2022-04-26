@@ -130,7 +130,7 @@ public class AccountDAO {
 		}
 	}
 	
-	public Acount getAccount(String UserID) throws SQLException {
+	public Account getAccount(String UserID) throws SQLException {
 		
     	Account account = null;
 		
