@@ -72,53 +72,53 @@ public class AccountDAO {
 		
 			//Insert Like of Tweet
 			preparedStatement.setString(1, "root");
-			preparedStatement.setString(2, "1000");
-			preparedStatement.setString(3, "1000000000");
+			preparedStatement.setInt(2, "1000");
+			preparedStatement.setInt(3, "1000000000");
 			preparedStatement.executeUpdate();
 			
 			preparedStatement.setString(1, "kelly@gmail.com");
-			preparedStatement.setString(2, "2002");
-			preparedStatement.setString(3, "200");
+			preparedStatement.setInt(2, "2002");
+			preparedStatement.setInt(3, "200");
 			preparedStatement.executeUpdate();
 			
 			preparedStatement.setString(1, "obama@gmail.com");
-			preparedStatement.setString(2, "198341");
-			preparedStatement.setString(3, "2500");
+			preparedStatement.setInt(2, "198341");
+			preparedStatement.setInt(3, "2500");
 			preparedStatement.executeUpdate();
 
 			preparedStatement.setString(1, "steveh@gmail.com");
-			preparedStatement.setString(2, "53421");
-			preparedStatement.setString(3, "500");
+			preparedStatement.setInt(2, "53421");
+			preparedStatement.setInt(3, "500");
 			preparedStatement.executeUpdate();
 
 			preparedStatement.setString(1, "hstyles@gmail.com");
-			preparedStatement.setString(2, "100");
-			preparedStatement.setString(3, "10");
+			preparedStatement.setInt(2, "100");
+			preparedStatement.setInt(3, "10");
 			preparedStatement.executeUpdate();
 
 			preparedStatement.setString(1, "jlo@gmail.com");
-			preparedStatement.setString(2, "9000");
-			preparedStatement.setString(3, "200");
+			preparedStatement.setInt(2, "9000");
+			preparedStatement.setInt(3, "200");
 			preparedStatement.executeUpdate();
 			
 			preparedStatement.setString(1, "squidgames@gmail.com");
-			preparedStatement.setString(2, "11000");
-			preparedStatement.setString(3, "100");
+			preparedStatement.setInt(2, "11000");
+			preparedStatement.setInt(3, "100");
 			preparedStatement.executeUpdate();
 
 			preparedStatement.setString(1, "jungkook@gmail.com");
-			preparedStatement.setString(2, "800000");
-			preparedStatement.setString(3, "0");
+			preparedStatement.setInt(2, "800000");
+			preparedStatement.setInt(3, "0");
 			preparedStatement.executeUpdate();
 
 			preparedStatement.setString(1, "halsey@gmail.com");
-			preparedStatement.setString(2, "293847");
-			preparedStatement.setString(3, "400");
+			preparedStatement.setInt(2, "293847");
+			preparedStatement.setInt(3, "400");
 			preparedStatement.executeUpdate();
 
 			preparedStatement.setString(1, "kylie@gmail.com");
-			preparedStatement.setString(2, "0");
-			preparedStatement.setString(3, "0");
+			preparedStatement.setInt(2, "0");
+			preparedStatement.setInt(3, "0");
 			preparedStatement.executeUpdate();
 			
 			System.out.println("Sucessfully Seeded Account Database");
