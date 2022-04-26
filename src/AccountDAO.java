@@ -130,7 +130,32 @@ public class AccountDAO {
 		}
 	}
 	
-	
+	public Acount getAccount(String UserID) throws SQLException {
+		
+    	Account account = null;
+		
+        String sql = "SELECT * FROM Account WHERE UserID = ?";
+         
+        connect_func();
+         
+        preparedStatement = (PreparedStatement) connect.prepareStatement(sql);
+        preparedStatement.setString(1, UserID);
+         
+        ResultSet resultSet = preparedStatement.executeQuery();
+         
+        if (resultSet.next()) {
+            String userid = resultSet.getString("UserID");
+            String balance = resultSet.getString("Balance");
+            String ppstotal = resultSet.getString("PPSTotal");
+             
+            account = new Account(userid, balance, ppstotal);
+        }
+         
+        resultSet.close();
+        statement.close();
+         
+        return account;
+    }
 	       
     /**
      * @see HttpServlet#HttpServlet()
