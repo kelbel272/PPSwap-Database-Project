@@ -81,7 +81,7 @@ public class ActivityDAO {
 			preparedStatement.setString(3, "kelly@gmail.com");
 			preparedStatement.setString(4, "kylie@gmail.com");
 			preparedStatement.setInt(5, "1");
-			preparedStatement.setString(6, ".01");
+			preparedStatement.setDouble(6, ".01");
 			preparedStatement.executeUpdate();
 			
 			preparedStatement.setString(1, "BUY");
@@ -89,7 +89,7 @@ public class ActivityDAO {
 			preparedStatement.setString(3, "root");
 			preparedStatement.setString(4, "jlo@gmail.com");
 			preparedStatement.setInt(5, "12");
-			preparedStatement.setString(6, ".12");
+			preparedStatement.setDouble(6, ".12");
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "SELL");
@@ -97,7 +97,7 @@ public class ActivityDAO {
 			preparedStatement.setString(3, "kelly@gmail.com");
 			preparedStatement.setString(4, "root");
 			preparedStatement.setInt(5, "100");
-			preparedStatement.setString(6, "1");
+			preparedStatement.setDouble(6, "1");
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "BUY");
@@ -105,7 +105,7 @@ public class ActivityDAO {
 			preparedStatement.setString(3, "root");
 			preparedStatement.setString(4, "obama@gmail.com");
 			preparedStatement.setInt(5, "200");
-			preparedStatement.setString(6, "2");
+			preparedStatement.setDouble(6, "2");
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "TRANSFER");
@@ -113,7 +113,7 @@ public class ActivityDAO {
 			preparedStatement.setString(3, "steveh@gmail.com");
 			preparedStatement.setString(4, "obama@gmail.com");
 			preparedStatement.setInt(5, "1900");
-			preparedStatement.setString(6, "19");
+			preparedStatement.setDouble(6, "19");
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "BUY");
@@ -121,7 +121,7 @@ public class ActivityDAO {
 			preparedStatement.setString(3, "root");
 			preparedStatement.setString(4, "steveh@gmail.com");
 			preparedStatement.setInt(5, "300");
-			preparedStatement.setString(6, "3");
+			preparedStatement.setDouble(6, "3");
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "SELL");
@@ -129,7 +129,7 @@ public class ActivityDAO {
 			preparedStatement.setString(3, "kelly@gmail.com");
 			preparedStatement.setString(4, "root");
 			preparedStatement.setInt(5, "10000");
-			preparedStatement.setString(6, "100");
+			preparedStatement.setDouble(6, "100");
 			preparedStatement.executeUpdate(); 
 
 			preparedStatement.setString(1, "BUY");
@@ -137,7 +137,7 @@ public class ActivityDAO {
 			preparedStatement.setString(3, "root");
 			preparedStatement.setString(4, "hstyles@gmail.com");
 			preparedStatement.setInt(5, "10");
-			preparedStatement.setString(6, ".1");
+			preparedStatement.setDouble(6, ".1");
 			preparedStatement.executeUpdate();
 			
 			preparedStatement.setString(1, "SELL");
@@ -145,7 +145,7 @@ public class ActivityDAO {
 			preparedStatement.setString(3, "kylie@gmail.com");
 			preparedStatement.setString(4, "root");
 			preparedStatement.setInt(5, "700");
-			preparedStatement.setString(6, "7");
+			preparedStatement.setDouble(6, "7");
 			preparedStatement.executeUpdate(); 
 			
 			preparedStatement.setString(1, "SELL");
@@ -153,7 +153,7 @@ public class ActivityDAO {
 			preparedStatement.setString(3, "kylie@gmail.com");
 			preparedStatement.setString(4, "root");
 			preparedStatement.setInt(5, "500");
-			preparedStatement.setString(6, "5");
+			preparedStatement.setDouble(6, "5");
 			preparedStatement.executeUpdate(); 
 			System.out.println("Sucessfully Seeded Activity Database");
 			
