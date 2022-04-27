@@ -65,7 +65,7 @@
 </nav>
 
 <!-- Home Page -->
-<div style="margin-left:25%">
+<div style="margin-left:20%">
     <!-- Search Bar -->
      <input type="text" name="search" placeholder="Search...">
 
@@ -75,31 +75,37 @@
     </div>
     <div class="post-div">
         <div class="post-comment-div">
-            <img style="height: 88px; width: 88px;" src="images/User.png">
+            <div class="comment">
+                <img style="height: 88px; width: 88px;" src="images/User.png">
                 <input type="text" name="tweet" placeholder="Whats on your mind?">
+            </div>
             <div class="post-line">  </div> <button>Create Post</button>
         </div>
     </div>
     <div class="tweets">
-    	<form action="listTweets" method="get">
+    	<form action="ListTweets" method="get">
     	<c:forEach var="tweets" items="${listTweets}">
         <div class="tweet-container" >
             <img style="height: 88px; width: 88px;" src="images/User.png">
-            <div class="tweet-author"><c:out value="${tweets.userID}" /></div>
-            <span class="dot"></span>
-            <div class="tweet-time">12m</div>
-            <div class="user-tweet"><c:out value="${tweets.tweet}" /></div>
+            <div class="tweet-content">
+                <div class="tweet-info">
+                    <div class="tweet-author"><c:out value="${tweets.userID}" /></div>
+                    <span class="dot"></span>
+                    <div class="tweet-time">12m</div>
+                </div>
+                <div class="user-tweet"><c:out value="${tweets.tweet}" /></div>
+            </div>
             <div class="like-comment-icons">
                 <img style="height: 88px; width: 88px;" src="images/Like.png">
                 <img style="height: 88px; width: 88px;" src="images/Comment.png">
             </div>
         </div>
         </c:forEach>
+        <button>List Tweets</button>
         </form>
     </div>
-   
-    
-    </div>
+
+</div>
 <center>
 		
 </center>
