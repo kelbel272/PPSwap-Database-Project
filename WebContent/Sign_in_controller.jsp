@@ -32,7 +32,7 @@ if (isRoot){
 } else if (isUser) {
 	
 	session.setAttribute("user_session", obj_Login_Bean);
-	response.sendRedirect("Home.jsp");
+	response.sendRedirect("Home2.jsp");
 } else {
 	
 	session.setAttribute("login_message", "Login Failed");

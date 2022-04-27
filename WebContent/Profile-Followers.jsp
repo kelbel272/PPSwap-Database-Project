@@ -1,4 +1,7 @@
-
+ 
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html >
 <head>
@@ -21,7 +24,7 @@
                 <img class="arrow" src="images/Caret-right.png">
             </a>
         </div>
-    <a href="#">
+    <a href="listActivity">
         <img class="icon" src="images/Lock.png">
                 Activity
         <img class="arrow" src="images/Caret-right.png">
@@ -51,21 +54,20 @@
     <div class="tweets">
         <div class="header-txt">
             <div style="display: flex; justify-content: space-evenly; padding-bottom: 22px;">
-                <a href="listFollowers"><u><span>Followers</span></u></a><a href="listFollowing"><span>Following</span></a>
+                <a href="listUserFollowers"><u><span>Followers</span></u></a><a href="listFollowing"><span>Following</span></a>
             </div>
             <div style="padding-left: 33px;" class="post-line"></div>
         </div>
-         <form action="listFollowers" method="get">
-    		<c:forEach var="follower" items="${listFollowers}">
+    		 <c:forEach var="userFollowers" items="${listUserFollowers}">
         	<div class="tweet-container" >
         		<img style="height: 88px; width: 88px;" src="images/User.png">
-            		<div class="tweet-author"><c:out value="${follower.userID}" /></div>
+            		<div class="tweet-author" style="color: black;"><c:out value="${userFollowers.followerID}" />
             		<button>Follow</button>
             		<button>Tip</button>
+            		</div>
             </div>
         
         </c:forEach>
-        </form>
     </div>
 </div>
 </body>
