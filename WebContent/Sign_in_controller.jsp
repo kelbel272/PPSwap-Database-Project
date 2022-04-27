@@ -28,11 +28,11 @@ boolean isUser = obj_Login_Modal.check_userID(obj_Login_Bean);
 if (isRoot){
 	
 	session.setAttribute("user_session", obj_Login_Bean);
-	response.sendRedirect("NewRootHome.jsp");
+	response.sendRedirect("RootHome.jsp");
 } else if (isUser) {
 	
 	session.setAttribute("user_session", obj_Login_Bean);
-	response.sendRedirect("Home2.jsp");
+	response.sendRedirect("Home.jsp");
 } else {
 	
 	session.setAttribute("login_message", "Login Failed");
