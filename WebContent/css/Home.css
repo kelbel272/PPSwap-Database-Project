@@ -1,4 +1,4 @@
-  /* STYLING FOR THE WHOLE WEBSITE */
+ /* STYLING FOR THE WHOLE WEBSITE */
   body {
     /* Gets rid of white line on left of website */
     margin: 0;
@@ -91,7 +91,7 @@
 input[name="search"] {
     display: flex;
     justify-content: right;
-    background-image: url('/WebContent/assets/images/Search.png');
+    background-image: url('images/Search.png');
     background-repeat: no-repeat;
     padding-left: 40px;
     background-position: 10px 10px;
@@ -217,7 +217,7 @@ button {
   .profile-pic {
     height: 88px;
     width: 88px;
-    background-image: url('/WebContent/assets/images/User.png');
+    background-image: url('assets/images/User.png');
     background-repeat: no-repeat;
   }
 
@@ -244,7 +244,7 @@ button {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
-  
+
   /* Modal Content */
   .modal-content {
     background-color: #fefefe;
@@ -254,7 +254,7 @@ button {
     border: 1px solid #888;
     width: 80%;
   }
-  
+
   /* The Close Button */
   .close {
     color: #aaaaaa;
@@ -262,10 +262,10 @@ button {
     font-size: 28px;
     font-weight: bold;
   }
-  
+
   .close:hover,
   .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
+  } 
