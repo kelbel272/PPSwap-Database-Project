@@ -3,7 +3,7 @@
 Kelly Whitlock (fr6097)
 Kylie Lee (gw2217)
 
-Hours worked together: 20hours 
+Hours worked together: 40hours 
 
 Contributions 
 - Kelly 
