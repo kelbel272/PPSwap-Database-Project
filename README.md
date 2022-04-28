@@ -9,11 +9,13 @@ Contributions
 - Kelly 
 --- Designed UI on Figma https://www.figma.com/file/GQTEI8oTlMEMKeAWFRIJQV/PPSwap
 --Implemented login.jsp, register.jsp, Home1.jsp, and MyRootPage.jsp 
+-- Created action functions to connect to the database
 
 - Kylie 
 --Made the database java files for each table and each of their their 10 realistic tuples 
 --Fixed formatting on the CSS 
-
+-- implemented SQL calls
+-- worked on all jsp files to be compatible with project
 
 SRC Folder 
 - Account.java and AccountDAO.java
